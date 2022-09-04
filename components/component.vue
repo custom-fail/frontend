@@ -28,7 +28,6 @@
 <script setup>
 import { ref } from "vue";
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption, Switch } from "@headlessui/vue"
-import { SelectorIcon } from '@heroicons/vue/solid'
 
 const { part } = defineProps(["part"])
 

@@ -32,7 +32,7 @@
 <script setup>
 import { ref } from "vue";
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@headlessui/vue"
-import { SelectorIcon } from '@heroicons/vue/solid'
+import { SelectorIcon } from '@heroicons/vue'
 const guilds = [
     {
       name: "PYRAX - Ziemniaczany Serwer Discord",

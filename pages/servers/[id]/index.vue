@@ -30,7 +30,7 @@
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import { ChevronUpIcon } from '@heroicons/vue/solid'
+import { ChevronUpIcon } from '@heroicons/vue'
 
 definePageMeta({
   layout: "server"
