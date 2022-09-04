@@ -6,8 +6,7 @@
       <div class="flex justify-between">
         <span class="text-[26px] text-white">{{ section.name }}</span>
         <disclosure-button>
-          <img
-              src="~/assets/ChevronUp.svg"
+          <ChevronUp
               :class="!open ? 'transform rotate-180' : ''"
               class="w-7 h-7 text-white right-0"
           />
@@ -31,6 +30,7 @@
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
+import ChevronUp from "../../../components/ChevronUp";
 
 definePageMeta({
   layout: "server"
