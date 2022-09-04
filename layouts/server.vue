@@ -1,0 +1,60 @@
+<template>
+  <div class="grid main">
+    <sidebar />
+    <main>
+      <navbar />
+      <div class="content bg-background w-full overflow-y-scroll mt-[80px] text-white">
+        <div class="m-[20px]">
+          <div class="flex justify-center">
+            <div class="max-w-[1500px] w-full">
+              <slot />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</template>
+
+<script setup>
+// definePageMeta({
+//   middleware: ["auth"]
+// })
+</script>
+
+<style>
+
+.main {
+  grid-template-columns: 300px 1fr;
+}
+
+.content {
+  height: calc(100vh - 80px);
+  scrollbar-color: rgba(255, 255, 255, 0.33) rgba(0, 0, 0, 0.14);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.14);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.33);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}
+</style>
