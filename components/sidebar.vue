@@ -35,7 +35,7 @@
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import { ChevronUpIcon } from '@heroicons/vue/solid'
+import { ChevronUpIcon } from '@heroicons/vue'
 import { ref } from "vue";
 const router = useRoute()
 
