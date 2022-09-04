@@ -7,7 +7,9 @@
             <span class="ml-3 block truncate">{{ selected.name }}</span>
           </span>
         <span class="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-            <SelectorIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+            <img
+                src="~/assets/ChevronUpDown.svg"
+                class="h-5 w-5 text-gray-400" aria-hidden="true" />
           </span>
       </ListboxButton>
 
@@ -32,7 +34,6 @@
 <script setup>
 import { ref } from "vue";
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@headlessui/vue"
-import { SelectorIcon } from '@heroicons/vue'
 const guilds = [
     {
       name: "PYRAX - Ziemniaczany Serwer Discord",

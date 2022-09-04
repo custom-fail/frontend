@@ -10,7 +10,8 @@
           <div class="flex justify-between" v-if="!section.hideName">
             <span class="text-white font-black text-[12px]">{{ section.name }}</span>
             <disclosure-button class="h-[24px] w-[24px]">
-              <ChevronUpIcon
+              <img
+                  src="~/assets/ChevronUp.svg"
                   :class="!open ? 'transform rotate-180' : ''" class="h-[24px] w-[24px] text-white z-0 right-0"
               />
             </disclosure-button>
@@ -35,7 +36,6 @@
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import { ChevronUpIcon } from '@heroicons/vue'
 import { ref } from "vue";
 const router = useRoute()
 
