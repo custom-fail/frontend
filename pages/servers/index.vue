@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-center">
-    <div v-if="guilds" class="mainn grid">
+  <div class="flex justify-center mt-[20px]">
+    <div v-if="guilds" class="list grid">
       <div v-for="guild in guilds" class="mb-[60px]">
         <div class="h-[200px] w-[300px] rounded w-full overflow-y-hidden overflow-x-hidden grid grid-cols-3 grid-rows-3">
           <img :src="guild.icon_url" class="w-[110%] blur max-w-[110%] relative icon-bg rounded-[1rem]">
@@ -11,7 +11,9 @@
         <div class="flex items-center justify-between w-[300px] h-[60px] p-[10px]">
           <span class="text-white text-[14px]">{{ guild.name }}</span>
           <NuxtLink :to="`/servers/${guild.id}`">
-            <button class="h-[40px] w-[100px] rounded bg-white ml-[10px]">Open</button>
+            <button class="h-[40px] w-[100px] rounded bg-white border-secondary border-[1px] ml-[10px]">
+              <span class="text-text">Open</span>
+            </button>
           </NuxtLink>
         </div>
       </div>
@@ -23,11 +25,6 @@
 </template>
 
 <script setup>
-definePageMeta({
-  layout: "list",
-  // middleware: ["auth"]
-})
-
 const guilds = [
   {
     name: "PYRAX - Ziemniaczany Serwer Discord",
@@ -42,23 +39,22 @@ const guilds = [
 </script>
 
 <style>
-
 @media screen and (min-width: 1200px) {
-  .mainn {
+  .list {
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 60px;
   }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
-  .mainn {
+  .list {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 60px;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .mainn {
+  .list {
     grid-template-columns: 1fr;
     grid-column-gap: 20px;
   }
