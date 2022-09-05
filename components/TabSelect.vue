@@ -1,6 +1,9 @@
 <template>
   <div class="w-full max-w-xl sm:px-0">
-    <RadioGroup class="flex space-x-1 rounded-xl bg-visible p-1" v-model="selected">
+    <RadioGroup
+        class="flex space-x-1 rounded-xl bg-visible p-1"
+        v-model="modelValue" @update:modelValue="$emit(`update:modelValue`, $event)"
+    >
       <RadioGroupOption
           v-for="tab in tabs"
           as="template"
@@ -25,10 +28,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
 import { RadioGroup, RadioGroupOption } from "@headlessui/vue"
-const props = defineProps(["modelValue", "tabs"])
-const tabs = props.tabs
-console.log(props.modelValue)
-const selected = ref(props.modelValue);
+let { modelValue, tabs } = defineProps(["modelValue", "tabs"])
 </script>
