@@ -17,11 +17,11 @@
           </div>
           <disclosure-panel>
             <div v-for="page in section.pages" class="flex text-[#97999b] h-[40px] w-full items-center pl-[10px]"
-                 :class="page.id === ($route.params.section || `main`)  ? `bg-containers rounded` : ``">
+                 :class="page.id === sectionID ? `bg-containers rounded` : ``">
               <img class="fill-white h-[24px] mr-[15px] opacity-[50%] fill-white" :src="page.icon" alt="">
               <NuxtLink :to="page.id === `main` ? `/servers/${guild_id}` : `/servers/${guild_id}/${page.id}`">
                 <span class="hover:text-white text-[13px]"
-                      :class="page.id === ($route.params.section || `main`) ? `text-white` : `text-[#8e9193]`">
+                      :class="page.id === sectionID ? `text-white` : `text-[#8e9193]`">
                   {{ page.name }}
                 </span>
               </NuxtLink>
@@ -44,6 +44,10 @@ const open = false;
 const selectedSection = ref(router.params.section || "main")
 const guild_id = ref(router.params.id)
 
+const paths = router.path.split("/");
+const sectionID = paths[paths.length - 1]
+console.log(paths, sectionID)
+
 const sections = [{
   name: "MAIN",
   hideName: true,
@@ -51,7 +55,7 @@ const sections = [{
     {
       icon: "/img/dashboard_white_24dp.svg",
       name: "Dashboard",
-      id: "main",
+      id: router.params.id,
       premium: false,
       disabled: false,
       selected: true
