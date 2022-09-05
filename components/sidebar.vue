@@ -49,7 +49,7 @@ const sections = [{
   hideName: true,
   pages: [
     {
-      icon: "~/assets/img/dashboard_white_24dp.svg",
+      icon: "/img/dashboard_white_24dp.svg",
       name: "Dashboard",
       id: "main",
       premium: false,
@@ -57,14 +57,14 @@ const sections = [{
       selected: true
     },
     // {
-    //   icon: "/assets/img/account_circle_white_24dp.svg",
+    //   icon: "/img/account_circle_white_24dp.svg",
     //   name: "Custom Bot",
     //   id: "custom-bot",
     //   premium: false,
     //   disabled: false,
     //   selected: false
     // }, {
-    //   icon: "/assets/img/admin_panel_settings_white_24dp.svg",
+    //   icon: "/img/admin_panel_settings_white_24dp.svg",
     //   name: "Settings",
     //   id: "options",
     //   premium: false,
@@ -75,21 +75,21 @@ const sections = [{
 }, {
   name: "MODERATION",
   pages: [{
-    icon: "~/assets/img/handyman_white_24dp.svg",
+    icon: "/img/handyman_white_24dp.svg",
     name: "Moderation",
     id: "moderation",
     premium: false,
     disabled: false,
     selected: false
   }, {
-    icon: "~/assets/img/comments_disabled_white_24dp.svg",
+    icon: "/img/comments_disabled_white_24dp.svg",
     name: "AutoMod",
     id: "automod",
     premium: false,
     disabled: false,
     selected: false
   }, {
-    icon: "~/assets/img/settings_backup_restore_white_24dp.svg",
+    icon: "/img/settings_backup_restore_white_24dp.svg",
     name: "Cases",
     id: "cases",
     premium: false,

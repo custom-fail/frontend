@@ -41,17 +41,17 @@ const data = [{
   plugins: [{
     name: "Moderation",
     description: "Manage executing moderation actions such a timeouts, bans and kicks",
-    icon: "/assets/img/icons8-where-to-quest-100.png",
+    icon: "/img/icons8-where-to-quest-100.png",
     to: "moderation"
   }, {
     name: "Auto Moderation",
     description: "Automate detecting suspicious behaviour of members on your server",
-    icon: "/assets/img/icons8-security-configuration-100.png",
+    icon: "/img/icons8-security-configuration-100.png",
     to: "automod"
   }, {
     name: "Cases",
     description: "Save information about everything that moderators have done",
-    icon: "/assets/img/icons8-card-security-100.png",
+    icon: "/img/icons8-card-security-100.png",
     to: "cases"
   }]
 }]

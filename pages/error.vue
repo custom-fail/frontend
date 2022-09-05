@@ -4,7 +4,7 @@
   </nav>
   <div class="h-[100vh] w-full flex items-center justify-center">
     <div class="text-center">
-      <img src="/assets/img/cancel_white_24dp.svg" class="h-[200px] opacity-50">
+      <img src="/img/cancel_white_24dp.svg" class="h-[200px] opacity-50">
       <span class="justify-center text-gray-50">Missing permissions {{ authenticated }} {{ x }} {{ y }}</span>
     </div>
 
