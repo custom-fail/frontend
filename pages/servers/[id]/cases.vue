@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Commands :commands="commands" />
+    <Commands v-model="commands" />
     <container>
       <!--    Save messages: <Switch :enabled="enabled" />-->
     </container>
@@ -9,7 +9,7 @@
 
 <script setup>
 import Container from "../../../components/container";
-// import Switch from "../../../components/SwitchLR";
+import Commands from "../../../components/commands"
 // import { Switch } from "@headlessui/vue"
 import {ref} from "vue";
 // const enabled = ref(true)

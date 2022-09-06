@@ -3,7 +3,7 @@
     <Title>Commands</Title>
     <Separator />
     <div class="m-[10px] p-[2px] bg-visible rounded">
-      <div v-for="command in commands" :key="command.name">
+      <div v-for="(command, i) in modelValue" :key="command.name">
         <div :class="[
               `m-[2px] p-[20px] rounded`,
               command.enabled ? `hover:bg-hover` : `bg-black cursor-not-allowed opacity-[20%]`
@@ -21,7 +21,7 @@
             </div>
             <div class="w-full content-center h-full inherit opacity-100 z-50">
               <button
-                  @click="setCommand(command, $event)"
+                  @click="setCommand(command, i, $event)"
                   class="opacity-[1] bg-selected p-[10px] rounded z-10">
                 {{ command.enabled ? `Disable` : `Enable` }}
               </button>
@@ -34,19 +34,17 @@
 </template>
 
 <script setup>
-import Switch from "./SwitchLR"
 import Title from "./title"
 import Separator from "./separator"
-import { ref } from "vue"
+import {ref, watch} from "vue";
 
-const props = defineProps(["commands"])
-const commands = ref(props.commands)
+let { modelValue } = defineProps(["modelValue"])
+const $emit = defineEmits(["update:modelValue"])
 
-const setCommand = (command, $event) => {
-  console.log(command.enabled)
-  console.log($event);
+const setCommand = (command, i, $event) => {
+  // $emit(`update:modelValue`, $event)
+  console.log(i)
   command.enabled = !command.enabled
-  console.log(command.enabled)
 }
 
 </script>

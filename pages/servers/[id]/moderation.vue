@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Commands :commands="commands" />
+  <div class="text=white">
+    <Commands v-model="commands" />
     <Container>
       <Title>Permissions</Title>
       <Separator />
@@ -17,9 +17,9 @@
       <div>
         <div class="grid grid-flow-col">
           <span>Mute mode: </span>
-          <TabSelect :tabs="muteModes" v-model="mode" />
+          <TabSelect :tabs="muteModes" v-model="muteMode" />
         </div>
-        <div v-if="mode.toLowerCase() === `role`">
+        <div v-if="muteMode === `Role` || muteMode === `Depends on command`">
           <span>Role given for muted users:</span>
 
         </div>
@@ -28,11 +28,10 @@
     </Container>
     <Container>
       <div class="grid  gap-[10px] buttons">
-        <span>Require reasons: </span> <Switch v-model="enabled" /><br>
-        Context menus: <Switch v-model="enabled" /><br>
+        Require reasons: <Switch v-model="requireReasons" /><br>
+        Context menus: <Switch v-model="contextMenus" /><br>
+        Revert actions: <Switch v-model="revertActions" /><br>
       </div>
-      <!--    Revertable actions: <Switch test="a" v-model="enabled" /><br>-->
-
     </Container>
   </div>
 </template>
@@ -41,24 +40,43 @@
 import Container from "../../../components/container";
 import Switch from "../../../components/SwitchLR";
 import Warning from "../../../components/warning";
-// import Line from "../../../components/line";
 import Title from "../../../components/title";
 import Separator from "../../../components/separator";
 import TabSelect from "../../../components/TabSelect";
 import Commands from "../../../components/commands"
 
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
-const commands = [
-    { name: "timeout", description: "Blocks possibility to send messages in selected amount of time", options: ["member", "reason"], enabled: ref(true) },
-    { name: "mute", description: "Blocks possibility to send messages in selected amount of time" , options: ["member", "reason"], enabled: ref(false) }
-]
-const enabled = true
-// watch(enabled, () => {
-//   console.log(enabled)
-// })
 const muteModes = ["Depends on command", "Timeout", "Role"]
-const mode = "Depends on command"
+
+let requireReasons = ref(true)
+let contextMenus = ref(true)
+let revertActions = ref(true)
+let muteMode = ref("Depends on command")
+
+let commands = ref([])
+
+const timeout = { name: "timeout", description: "Time out user", options: ["member", "duration", "reason"], enabled: true };
+const mute = { name: "mute", description: "Mute user", options: ["member", "duration", "reason"], enabled: true };
+const kick = { name: "kick", description: "Kick user", options: ["member", "reason"], enabled: true };
+const ban = { name: "ban", description: "Ban user", options: ["member", "duration", "reason"], enabled: true };
+const unban = { name: "unban", description: "Removes ban", options: ["member", "duration", "reason"], enabled: true };
+const unmute = { name: "unmute", description: "Removes mute/timeout", options: ["member", "duration", "reason"], enabled: true };
+
+const updateCommands = () => {
+  const results = [kick, ban]
+
+  if(muteMode.value === "Timeout") results.push(timeout)
+  else if(muteMode.value === "Role") results.push(mute)
+  else if(muteMode.value === "Depends on command") results.push(timeout, mute)
+
+  if(revertActions.value) results.push(unban, unmute)
+
+  commands.value = results
+}
+
+updateCommands()
+watch(muteMode, updateCommands)
 
 definePageMeta({
   layout: "server",
