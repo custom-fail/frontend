@@ -76,6 +76,7 @@ const updateCommands = () => {
 }
 
 updateCommands()
+watch(revertActions, updateCommands)
 watch(muteMode, updateCommands)
 
 definePageMeta({
