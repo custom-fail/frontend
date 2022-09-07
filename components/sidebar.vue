@@ -17,11 +17,11 @@
           </div>
           <disclosure-panel>
             <div v-for="page in section.pages" class="flex text-[#97999b] h-[40px] w-full items-center pl-[10px]"
-                 :class="page.id === sectionID ? `bg-containers rounded` : ``">
+                 :class="sectionID === page.id ? `bg-containers rounded` : ``">
               <img class="fill-white h-[24px] mr-[15px] opacity-[50%] fill-white" :src="page.icon" alt="">
-              <NuxtLink :to="page.id === `main` ? `/servers/${guild_id}` : `/servers/${guild_id}/${page.id}`">
+              <NuxtLink :to="page.id === `main` ? `/servers/${guildID}` : `/servers/${guildID}/${page.id}`">
                 <span class="hover:text-white text-[13px]"
-                      :class="page.id === sectionID ? `text-white` : `text-[#8e9193]`">
+                      :class="sectionID === page.id ? `text-white` : `text-[#8e9193]`">
                   {{ page.name }}
                 </span>
               </NuxtLink>
@@ -35,18 +35,25 @@
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import { ref } from "vue";
+import { ref, watch, onMounted } from "vue";
 import ChevronUp from "./ChevronUp";
 const router = useRoute()
 
-const open = false;
+let guildID = ref(router.params.id)
+let sectionID = ref("")
 
-const selectedSection = ref(router.params.section || "main")
-const guild_id = ref(router.params.id)
+const updatePathData = () => {
+  const guild = router.params.id;
+  const pathParts = router.path.split("/")
+  const sectionPart = pathParts[pathParts.length - 1]
+  const section = sectionPart === guild ? "main" : sectionPart
 
-const paths = router.path.split("/");
-const sectionID = paths[paths.length - 1]
-console.log(paths, sectionID)
+  guildID.value = router.params.id
+  sectionID.value = section
+}
+
+onMounted(updatePathData)
+watch(router, updatePathData)
 
 const sections = [{
   name: "MAIN",
@@ -55,7 +62,7 @@ const sections = [{
     {
       icon: "/img/dashboard_white_24dp.svg",
       name: "Dashboard",
-      id: router.params.id,
+      id: "main",
       premium: false,
       disabled: false,
       selected: true
