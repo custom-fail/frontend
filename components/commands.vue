@@ -1,5 +1,5 @@
 <template>
-  <container>
+  <Container>
     <Title>Commands</Title>
     <Separator />
     <div class="m-[10px] p-[2px] bg-visible rounded">
@@ -30,10 +30,11 @@
         </div>
       </div>
     </div>
-  </container>
+  </Container>
 </template>
 
 <script setup>
+import Container from "./container"
 import Title from "./title"
 import Separator from "./separator"
 import {ref, watch} from "vue";

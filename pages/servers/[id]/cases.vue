@@ -14,13 +14,13 @@ import Commands from "../../../components/commands"
 import {ref} from "vue";
 // const enabled = ref(true)
 
-const commands = [
-  { name: "case edit", description: "Edits reason of a case", options: ["number", "reason"], enabled: ref(false) },
-  { name: "case details", description: "Show detailed information selected about case", options: ["number"], enabled: ref(false) },
-  { name: "case list", description: "List all user cases", options: ["member"], enabled: ref(false) },
-  { name: "case last", description: "Show detailed information about last case" , options: ["member"], enabled: ref(false) },
-  { name: "case remove", description: "Removes case from user history" , options: ["number"], enabled: ref(false) }
-]
+const commands = ref([
+  { name: "case edit", description: "Edits reason of a case", options: ["number", "reason"], enabled: false },
+  { name: "case details", description: "Show detailed information selected about case", options: ["number"], enabled: false },
+  { name: "case list", description: "List all user cases", options: ["member", "page", "type"], enabled: false },
+  { name: "case last", description: "Show detailed information about last case" , options: ["member"], enabled: false },
+  { name: "case remove", description: "Removes case from user history" , options: ["number"], enabled: false }
+])
 definePageMeta({
   layout: "server",
   // middleware: ["auth"]

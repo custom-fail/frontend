@@ -60,8 +60,8 @@ const timeout = { name: "timeout", description: "Time out user", options: ["memb
 const mute = { name: "mute", description: "Mute user", options: ["member", "duration", "reason"], enabled: true };
 const kick = { name: "kick", description: "Kick user", options: ["member", "reason"], enabled: true };
 const ban = { name: "ban", description: "Ban user", options: ["member", "duration", "reason"], enabled: true };
-const unban = { name: "unban", description: "Removes ban", options: ["member", "duration", "reason"], enabled: true };
-const unmute = { name: "unmute", description: "Removes mute/timeout", options: ["member", "duration", "reason"], enabled: true };
+const unban = { name: "unban", description: "Removes ban", options: ["member"], enabled: true };
+const unmute = { name: "unmute", description: "Removes mute/timeout", options: ["member"], enabled: true };
 
 const updateCommands = () => {
   const results = [kick, ban]
