@@ -6,10 +6,13 @@
       </div>
       <a :href="loginUrl"><button class="h-[50px] bg-white mr-[50px] rounded p-[10px]">Open Dashboard</button></a>
     </nav>
-    <div class="w-full h-[100vh] bg-background overflow-y-scroll">
+    <div class="h-100vh">
       <div class="h-[80px]"></div>
-      <slot />
+      <div class="w-full bg-background">
+        <slot />
+      </div>
     </div>
+
   </div>
 </template>
 
