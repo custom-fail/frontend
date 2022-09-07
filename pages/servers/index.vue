@@ -11,7 +11,7 @@
         <div class="flex items-center justify-between w-[300px] h-[60px] p-[10px]">
           <span class="text-white text-[14px]">{{ guild.name }}</span>
           <NuxtLink :to="`/servers/${guild.id}`">
-            <button class="h-[40px] w-[100px] rounded bg-white border-secondary border-[1px] ml-[10px]">
+            <button class="h-[40px] w-[100px] rounded border-secondary border-[1px] ml-[10px]">
               <span class="text-text">Open</span>
             </button>
           </NuxtLink>
