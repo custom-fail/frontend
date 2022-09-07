@@ -1,7 +1,7 @@
 <template>
   <nav class="w-[300px] bg-background h-[100vh] overflow-y-hidden border-r-lines border-r-[1px] pl-[20px] pr-[20px]">
     <div class="mt-[15px] mb-[10px]">
-      <custom-name />
+      <CustomName />
     </div>
     <!-- <guilds-selector /> -->
     <div class="m-[2px] mt-[10px] text-[#8e9193]">
@@ -35,6 +35,7 @@
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
+import CustomName from "./CustomName"
 import { ref, watch, onMounted } from "vue";
 import ChevronUp from "./ChevronUp";
 const router = useRoute()
