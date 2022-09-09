@@ -15,23 +15,21 @@
     <Container>
       <Title>Mutes</Title><br><br>
       <div>
-        <div class="grid grid-flow-col">
+        <div>
           <span>Mute mode: </span>
-          <TabSelect :tabs="muteModes" v-model="muteMode" />
+          <TabSelect :tabs="muteModes" v-model="muteMode" class="mt-[5px]" />
         </div>
-        <div v-if="muteMode === `Role` || muteMode === `Depends on command`">
-          <span>Role given for muted users:</span>
-
+        <div v-if="muteMode === `Role` || muteMode === `Depends on command`" class="mt-[10px]">
+          <span>Role given to muted users:</span>
+          <RoleSelector :roles="guildRoles" v-model="muteRole" class="mt-[5px]" />
         </div>
       </div>
 
     </Container>
     <Container>
-      <div class="grid  gap-[10px] buttons">
-        Require reasons: <Switch v-model="requireReasons" /><br>
-        Context menus: <Switch v-model="contextMenus" /><br>
-        Revert actions: <Switch v-model="revertActions" /><br>
-      </div>
+      <div class="line">Require reasons: <Switch v-model="requireReasons" /></div>
+      <div class="line">Context menus: <Switch v-model="contextMenus" /></div>
+      <div class="line">Revert actions: <Switch v-model="revertActions" /></div>
     </Container>
   </div>
 </template>
@@ -44,6 +42,7 @@ import Title from "../../../components/title";
 import Separator from "../../../components/separator";
 import TabSelect from "../../../components/TabSelect";
 import Commands from "../../../components/commands"
+import RoleSelector from "../../../components/RoleSelector";
 
 import { ref, watch } from "vue";
 
@@ -53,6 +52,10 @@ let requireReasons = ref(true)
 let contextMenus = ref(true)
 let revertActions = ref(true)
 let muteMode = ref("Depends on command")
+
+let muteRole = ref("321")
+
+const guildRoles = [{ name: "Administrator", id: "123", color: 0 }, { name: "Muted", id: "321", color: 0 }]
 
 let commands = ref([])
 
@@ -86,11 +89,13 @@ definePageMeta({
 </script>
 
 <style>
-.inherit {
-  display: inherit;
-}
-
 .buttons {
   grid-template-columns: 1fr 80px;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
 }
 </style>
