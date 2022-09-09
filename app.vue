@@ -9,4 +9,8 @@
 body {
   background-color: #121212;
 }
+
+.inherit {
+  display: inherit;
+}
 </style>
