@@ -12,10 +12,19 @@
           />
         </disclosure-button>
       </div>
+      <transition
+          enter-active-class="transition duration-100 ease-out"
+          enter-from-class="transform scale-95 opacity-0"
+          enter-to-class="transform scale-100 opacity-100"
+          leave-active-class="transition duration-75 ease-out"
+          leave-from-class="transform scale-100 opacity-100"
+          leave-to-class="transform scale-95 opacity-0"
+      >
       <disclosure-panel>
-        <separator />
+        <Separator />
         <div class="grid grid-cols-3">
-          <NuxtLink v-for="plugin in section.plugins" :to="`/servers/${$route.params.id}/${plugin.to}`">
+          <NuxtLink v-for="plugin in section
+          .plugins" :to="`/servers/${$route.params.id}/${plugin.to}`">
             <div class="bg-visible rounded p-[20px] m-[5px] hover:bg-hover hover:cursor-pointer">
               <img class="h-[50px] mb-[10px]" :src="plugin.icon" alt="">
               <span class="text-white text-[18px] mb-[5px]">{{ plugin.name }}</span><br>
@@ -24,6 +33,7 @@
           </NuxtLink>
         </div>
       </disclosure-panel>
+      </transition>
     </disclosure>
   </main>
 </template>
@@ -31,6 +41,7 @@
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import ChevronUp from "../../../components/ChevronUp";
+import Seprator from "../../../components/separator"
 
 definePageMeta({
   layout: "server"
