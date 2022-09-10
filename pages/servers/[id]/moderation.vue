@@ -50,7 +50,7 @@ const muteModes = ["Depends on command", "Timeout", "Role"]
 
 let requireReasons = ref(true)
 let contextMenus = ref(true)
-let revertActions = ref(true)
+let revertActions = ref(false)
 let muteMode = ref("Depends on command")
 
 let muteRole = ref("321")
