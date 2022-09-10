@@ -11,10 +11,12 @@
             <span class="text-white font-black text-[12px]">{{ section.name }}</span>
             <disclosure-button class="h-[24px] w-[24px]">
               <ChevronUp
-                  :class="!open ? 'transform rotate-180' : ''" class="h-[24px] w-[24px] text-white z-0 right-0"
+                  :class="!open ? 'transform rotate-180' : ''"
+                  class="h-[24px] w-[24px] text-white z-0 right-0 transform transition-transform duration-300"
               />
             </disclosure-button>
           </div>
+
           <disclosure-panel>
             <div v-for="page in section.pages" class="flex text-[#97999b] h-[40px] w-full items-center pl-[10px]"
                  :class="sectionID === page.id ? `bg-containers rounded` : ``">

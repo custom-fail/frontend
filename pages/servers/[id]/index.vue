@@ -8,7 +8,7 @@
         <disclosure-button>
           <ChevronUp
               :class="!open ? 'transform rotate-180' : ''"
-              class="w-7 h-7 text-white right-0"
+              class="w-7 h-7 text-white right-0 transform transition-transform duration-300"
           />
         </disclosure-button>
       </div>
@@ -20,19 +20,19 @@
           leave-from-class="transform scale-100 opacity-100"
           leave-to-class="transform scale-95 opacity-0"
       >
-      <disclosure-panel>
-        <Separator />
-        <div class="grid grid-cols-3">
-          <NuxtLink v-for="plugin in section
-          .plugins" :to="`/servers/${$route.params.id}/${plugin.to}`">
-            <div class="bg-visible rounded p-[20px] m-[5px] hover:bg-hover hover:cursor-pointer">
-              <img class="h-[50px] mb-[10px]" :src="plugin.icon" alt="">
-              <span class="text-white text-[18px] mb-[5px]">{{ plugin.name }}</span><br>
-              <span class="text-[#9b9d9f] text-[14px]">{{ plugin.description }}</span>
-            </div>
-          </NuxtLink>
-        </div>
-      </disclosure-panel>
+        <disclosure-panel>
+          <Separator />
+          <div class="grid grid-cols-3">
+            <NuxtLink v-for="plugin in section
+            .plugins" :to="`/servers/${$route.params.id}/${plugin.to}`">
+              <div class="bg-visible rounded p-[20px] m-[5px] hover:bg-hover hover:cursor-pointer">
+                <img class="h-[50px] mb-[10px]" :src="plugin.icon" alt="">
+                <span class="text-white text-[18px] mb-[5px]">{{ plugin.name }}</span><br>
+                <span class="text-[#9b9d9f] text-[14px]">{{ plugin.description }}</span>
+              </div>
+            </NuxtLink>
+          </div>
+        </disclosure-panel>
       </transition>
     </disclosure>
   </main>
@@ -41,7 +41,7 @@
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import ChevronUp from "../../../components/ChevronUp";
-import Seprator from "../../../components/separator"
+import Separator from "../../../components/separator"
 
 definePageMeta({
   layout: "server"
