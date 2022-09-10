@@ -13,7 +13,7 @@
       >
         <button
             :class="[
-             'w-full rounded-lg py-2.5 text-sm font-medium transition-colors',
+             'w-full rounded-lg py-2.5 text-sm transition-colors',
              'ring-white ring-opacity-60 focus:outline-none',
              checked
                ? 'bg-containers text-primary'
