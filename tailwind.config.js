@@ -9,13 +9,19 @@ module.exports = {
   theme: {
     extend: {
       textColor: {
-        warning: "#fdb766"
+        warning: "#fdb766",
+        success: "white",
+        info: "#f1f3fa"
       },
       borderColor: {
-        warning: "#fdb766"
+        warning: "#fdb766",
+        success: "#42503d",
+        info: "#555762"
       },
       backgroundColor: {
-        warning: "#fdb7661a"
+        warning: "#fdb7661a",
+        success: "#232521",
+        info: "#2b2f3a"
       },
       colors: {
         primary: "white",

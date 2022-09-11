@@ -4,13 +4,13 @@
     <Container>
       <Title>Permissions</Title>
       <Separator />
-      <Warning>
+      <MessageBox type="warning">
         Access to selected moderation commands can be disabled/enabled in server settings (Integrations > Bots and Apps > Custom > Command Permissions)<br><br>
         <img
             src="https://cdn.discordapp.com/attachments/988845764925067424/1015291942457856110/unknown.png"
             alt="Screenshot from settings"
         />
-      </Warning>
+      </MessageBox>
     </Container>
     <Container>
       <Title>Mutes</Title><br><br>
@@ -35,14 +35,14 @@
 </template>
 
 <script setup>
-import Container from "../../../components/container";
-import Switch from "../../../components/SwitchLR";
-import Warning from "../../../components/warning";
-import Title from "../../../components/title";
-import Separator from "../../../components/separator";
-import TabSelect from "../../../components/TabSelect";
-import Commands from "../../../components/commands"
-import RoleSelector from "../../../components/RoleSelector";
+import Container from "../../../components/content/Container";
+import Switch from "../../../components/forms/SwitchLR";
+import MessageBox from "../../../components/content/MessageBox";
+import Title from "../../../components/content/Title";
+import Separator from "../../../components/content/Separator";
+import TabSelect from "../../../components/forms/TabSelect";
+import Commands from "../../../components/content/Commands"
+import RoleSelector from "../../../components/forms/RoleSelector";
 
 import { ref, watch } from "vue";
 

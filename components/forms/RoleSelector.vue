@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-        class="flex w-[250px] h-[35px] justify-between bg-visible pl-[10px] p-[5px] rounded cursor-pointer relative"
+        class="flex w-[250px] h-[35px] justify-between bg-visible pl-[10px] p-[5px] rounded cursor-pointer"
         @click="show = !show"
     >
       <span v-if="selectedRole">{{ selectedRole.name }}</span>
@@ -10,13 +10,13 @@
     </div>
     <div
         v-if="show"
-        class="bg-visible w-[250px] p-[10px] rounded mt-[5px] absolute block z-1"
+        class="bg-visible w-[250px] p-[10px] rounded mt-[5px] absolute block z-1 block"
     >
       <input v-model="query" class="bg-hover rounded h-[30px] w-full pl-[5px] pr-[5px] mb-[6px]">
       <div>
         <div
           v-if="matchingRoles.length > 0" v-for="role in matchingRoles"
-          class="p-[5px] flex mt-[2px] cursor-pointer hover:bg-hover rounded"
+          class="p-[5px] flex mt-[2px] cursor-pointer hover:bg-hover rounded z-20"
           @click="$emit(`update:modelValue`, role.id)"
         >
           <span class="w-[40px]"><ShieldCheck v-if="modelValue === role.id"/></span>
@@ -30,8 +30,8 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import ShieldCheck from "./ShieldCheck";
-import ChevronUpDown from "./ChevronUpDown";
+import ShieldCheck from "../icons/ShieldCheck";
+import ChevronUpDown from "../icons/ChevronUpDown";
 
 let { modelValue, roles } = defineProps(["modelValue", "roles"])
 let query = ref('')

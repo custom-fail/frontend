@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import Container from "../../../components/container"
+import Container from "../../../components/content/Container"
 import { ref } from "vue"
 
 const basicRules = ref([

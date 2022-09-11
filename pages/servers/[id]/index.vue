@@ -40,8 +40,8 @@
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import ChevronUp from "../../../components/ChevronUp";
-import Separator from "../../../components/separator"
+import ChevronUp from "../../../components/icons/ChevronUp";
+import Separator from "../../../components/content/Separator"
 
 definePageMeta({
   layout: "server"

@@ -39,7 +39,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import CustomName from "./CustomName"
 import { ref, watch, onMounted } from "vue";
-import ChevronUp from "./ChevronUp";
+import ChevronUp from "./icons/ChevronUp";
 const router = useRoute()
 
 let guildID = ref(router.params.id)

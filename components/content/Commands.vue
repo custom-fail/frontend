@@ -15,8 +15,8 @@
               <span v-for="option in command.options" :key="option"
                     class="bg-containers text-text rounded p-[4px] ml-[5px]"
               >
-              {{ option }}
-            </span><br>
+                {{ option }}
+              </span><br>
               <span class="text-text text-[12px]">{{ command.description }}</span>
             </div>
             <div class="w-full content-center h-full inherit opacity-100 z-50">
@@ -34,9 +34,9 @@
 </template>
 
 <script setup>
-import Container from "./container"
-import Title from "./title"
-import Separator from "./separator"
+import Container from "./Container"
+import Title from "./Title"
+import Separator from "./Separator"
 import {ref, watch} from "vue";
 
 let { modelValue } = defineProps(["modelValue"])

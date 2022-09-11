@@ -8,8 +8,8 @@
 </template>
 
 <script setup>
-import Container from "../../../components/container";
-import Commands from "../../../components/commands"
+import Container from "../../../components/content/Container";
+import Commands from "../../../components/content/Commands"
 // import { Switch } from "@headlessui/vue"
 import {ref} from "vue";
 // const enabled = ref(true)
