@@ -13,7 +13,8 @@
       </MessageBox>
     </Container>
     <Container>
-      <Title>Mutes</Title><br><br>
+      <Title>Mutes</Title>
+      <Separator />
       <div>
         <div>
           <span>Mute mode: </span>
@@ -24,7 +25,6 @@
           <RoleSelector :roles="guildRoles" v-model="muteRole" class="mt-[5px]" />
         </div>
       </div>
-
     </Container>
     <Container>
       <div class="line">Require reasons: <Switch v-model="requireReasons" /></div>
