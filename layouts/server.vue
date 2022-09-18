@@ -1,14 +1,12 @@
 <template>
   <div class="grid main">
-    <sidebar />
+    <Sidebar />
     <main>
-      <navbar />
+      <Navbar />
       <div class="content bg-background w-full overflow-y-scroll mt-[80px] text-white">
-        <div class="m-[20px]">
-          <div class="flex justify-center">
-            <div class="max-w-[1500px] w-full">
-              <slot />
-            </div>
+        <div class="m-[20px] flex justify-center page">
+          <div class="max-w-[1500px] w-full">
+            <slot />
           </div>
         </div>
       </div>
@@ -17,13 +15,14 @@
 </template>
 
 <script setup>
-// definePageMeta({
-//   middleware: ["auth"]
-// })
+import Sidebar from "../components/sidebar"
+import Navbar from "../components/navbar"
 </script>
 
 <style>
-
+.page {
+  z-index: -1;
+}
 .main {
   grid-template-columns: 300px 1fr;
 }

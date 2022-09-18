@@ -16,7 +16,7 @@
              'w-full rounded-lg py-2.5 text-sm transition-colors',
              'ring-white ring-opacity-60 focus:outline-none',
              checked
-               ? 'bg-containers text-primary'
+               ? 'bg-containers text-white'
                : 'text-text hover:bg-white/[0.12] hover:text-white',
            ]"
         >

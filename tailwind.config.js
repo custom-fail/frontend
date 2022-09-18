@@ -24,15 +24,16 @@ module.exports = {
         info: "#2b2f3a"
       },
       colors: {
-        primary: "white",
-        secondary: "#f0f04f",
+        primary: "#f0f04f",
+        secondary: "#4f545c",
         text: "#8d9092",
         background: "#121212",
         containers: "#141414",
         visible: "#202020",
         selected: "#1c1c1c",
         hover: "#1d1d1d",
-        lines: "#323232"
+        lines: "#323232",
+        link: "#3b809f",
       }
     },
   },

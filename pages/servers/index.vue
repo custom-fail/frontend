@@ -1,27 +1,30 @@
 <template>
-  <div class="flex justify-center mt-[20px]">
-    <div v-if="guilds" class="list grid">
-      <div v-for="guild in guilds" class="mb-[60px]">
-        <div class="h-[200px] w-[300px] rounded w-full overflow-y-hidden overflow-x-hidden grid grid-cols-3 grid-rows-3">
-          <img :src="guild.icon_url" class="w-[110%] blur max-w-[110%] relative icon-bg rounded-[1rem]">
-          <div class="icon w-full max-h-full h-[1000px] flex items-center justify-center align-middle">
-            <img :src="guild.icon_url" alt="" class="h-[80px] rounded-full">
+  <div>
+    <div class="flex justify-center mt-[20px]">
+      <div v-if="guilds" class="list grid">
+        <div v-for="guild in guilds" class="mb-[60px]">
+          <div class="h-[200px] w-[300px] rounded w-full overflow-y-hidden overflow-x-hidden grid grid-cols-3 grid-rows-3">
+            <img :src="guild.icon_url" class="w-[110%] blur max-w-[110%] relative icon-bg rounded-[1rem]">
+            <div class="icon w-full max-h-full h-[1000px] flex items-center justify-center align-middle">
+              <img :src="guild.icon_url" alt="" class="h-[80px] rounded-full">
+            </div>
+          </div>
+          <div class="flex items-center justify-between w-[300px] h-[60px] p-[10px]">
+            <span class="text-white text-[14px]">{{ guild.name }}</span>
+            <NuxtLink :to="`/servers/${guild.id}`">
+              <button class="h-[40px] w-[100px] rounded border-primary border-[1px] ml-[10px]">
+                <span class="text-text">Open</span>
+              </button>
+            </NuxtLink>
           </div>
         </div>
-        <div class="flex items-center justify-between w-[300px] h-[60px] p-[10px]">
-          <span class="text-white text-[14px]">{{ guild.name }}</span>
-          <NuxtLink :to="`/servers/${guild.id}`">
-            <button class="h-[40px] w-[100px] rounded border-secondary border-[1px] ml-[10px]">
-              <span class="text-text">Open</span>
-            </button>
-          </NuxtLink>
-        </div>
+      </div>
+      <div v-else>
+        Loading...
       </div>
     </div>
-    <div v-else>
-      Loading...
-    </div>
   </div>
+
 </template>
 
 <script setup>

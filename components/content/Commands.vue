@@ -11,7 +11,7 @@
         >
           <div class="grid command">
             <div class="w-full">
-              <span class="text-primary text-[20px] mr-[4px]">/{{ command.name }}</span>
+              <span class="text-white text-[20px] mr-[4px]">/{{ command.name }}</span>
               <span v-for="option in command.options" :key="option"
                     class="bg-containers text-text rounded p-[4px] ml-[5px]"
               >

@@ -1,15 +1,25 @@
 <template>
   <div>
+    <Container>
+      <div class="flex justify-between align-middle">
+        <div class="place-items-center inherit">
+          <span>Show cases in selected servers</span>
+        </div>
+        <NuxtLink href="cases/list">
+          <button class="rounded h-[50px] w-[230px] bg-secondary">View cases</button>
+        </NuxtLink>
+      </div>
+    </Container>
     <Commands v-model="commands" />
     <container>
-      <!--    Save messages: <Switch :enabled="enabled" />-->
+<!--      Save messages: <Switch :enabled="enabled" />-->
     </container>
   </div>
 </template>
 
 <script setup>
-import Container from "../../../components/content/Container";
-import Commands from "../../../components/content/Commands"
+import Container from "../../../../components/content/Container";
+import Commands from "../../../../components/content/Commands"
 // import { Switch } from "@headlessui/vue"
 import {ref} from "vue";
 // const enabled = ref(true)

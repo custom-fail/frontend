@@ -1,8 +1,11 @@
 <template>
-  <div class="h-[60px] flex justify-center items-center w-300px">
-    <img class="rounded-full mr-3 h-[40px] shadow-[yellow] avatar" :src="avatar" alt="">
-    <span class="text-[40px] text-white font-bold text-center">Custom</span>
-  </div>
+  <NuxtLink href="/">
+    <div class="h-[60px] flex justify-center items-center w-300px">
+      <img class="rounded-full mr-3 h-[40px] shadow-[yellow] avatar" :src="avatar" alt="">
+      <span class="text-[40px] text-white font-bold text-center">Custom</span>
+    </div>
+  </NuxtLink>
+
 </template>
 
 <script setup>
