@@ -1,10 +1,28 @@
 <template>
-  <div class="scroll-smooth">
-    <div class="first">
-    </div>
-    <Separator />
+  <div class="scroll-smooth text-white">
     <div class="first">
 
+    </div>
+    <Separator />
+    <div class="pr-[5%] pl-[5%]">
+      <div class="flex justify-center mb-[100px]">
+        <img class="w-[35%] max-w-[500px] mr-[30px]" src="/img/Frame%203.svg" />
+        <div class="place-items-center grid">
+          <div>
+            <span class="text-white text-[20px]">Context menus</span><br>
+            <span>Compatible with a discord latest features to improve your experience</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <div class="place-items-center grid">
+          <div>
+            <span class="text-white text-[20px]">Modals/Forms</span><br>
+            <span>We are making everything intuitive. Accessibility is our top priority!</span>
+          </div>
+        </div>
+        <img class="w-[35%] max-w-[500px] ml-[30px]" src="/img/Frame%205.svg" />
+      </div>
     </div>
     <Separator />
     <div class="h-[300px] w-full grid grid-cols-3 text-text text-center">

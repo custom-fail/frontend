@@ -1,11 +1,17 @@
 <template>
   <div>
-    <nav class="w-full absolute top-0 left-0 h-[80px] bg-selected z-20 flex justify-between items-center">
-      <div class="ml-[60px]">
-        <CustomName />
-      </div>
-      <a :href="loginUrl"><button class="h-[50px] bg-white mr-[50px] rounded p-[10px]">Open Dashboard</button></a>
-    </nav>
+    <div class="w-full">
+      <nav class="w-full absolute top-0 left-0 h-[80px] bg-background z-20 flex justify-between items-center">
+        <div class="ml-[60px]">
+          <CustomName />
+        </div>
+        <div class="flex text-text place-items-center">
+          <NuxtLink href="/support" class="text-[16px] mr-[40px]">Documentation</NuxtLink>
+          <NuxtLink href="https://discord.gg/7HUDwwZjGt" class="mr-[50px] text-[16px]">Discord Server</NuxtLink>
+          <a :href="loginUrl"><button class="h-[50px] bg-white mr-[50px] rounded p-[10px] text-black">Open Dashboard</button></a>
+        </div>
+      </nav>
+    </div>
     <div class="h-100vh">
       <div class="h-[80px]"></div>
       <div class="w-full bg-background">
