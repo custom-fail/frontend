@@ -24,7 +24,7 @@
           <img src="/img/previews/AntiDuplicate.svg" class="w-[35%] ml-[5%] mb-[60px]">
         </div>
         <div class="flex">
-          <img src="/img/previews/CaseLast.svg" class="w-[35%] mr-[60px]">
+          <img src="/img/previews/CaseLast.svg" class="w-[35%]">
           <img src="/img/previews/AutoMod.svg" class="w-[35%] ml-[60px]">
           <img src="/img/previews/AutoModLogs.svg" class="w-[35%] ml-[60px]">
           <img src="/img/previews/Timeout.svg" class="w-[35%] ml-[60px]">
