@@ -13,6 +13,31 @@ body {
 .inherit {
   display: inherit;
 }
+
+* {
+  scrollbar-color: rgba(255, 255, 255, 0.33) rgba(0, 0, 0, 0.14);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.14);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.33);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.14);
+}
 </style>
 
 <script setup>
