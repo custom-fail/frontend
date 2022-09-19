@@ -1,7 +1,15 @@
 <template>
   <div class="scroll-smooth text-white">
-    <div class="first">
-
+    <div class="first flex place-items-center justify-center px-[10%]">
+      <div>
+        <span class="text-[40px]">Custom</span><br>
+        <span>Bot that will help you moderate your discord server</span>
+        <ActionRow class="mt-[30px]" />
+      </div>
+      <img
+          src="https://cdn.discordapp.com/attachments/845700949813100564/1011252863235796992/0da14416-65b4-4b14-8d61-89fc71339d32_progress_image_0.webp"
+          class="rounded-full h-[350px] ml-[80px]"
+      />
     </div>
     <Separator />
     <div class="pr-[5%] pl-[5%] bg-[#121313] my-[50px]">
@@ -36,17 +44,7 @@
       <div class="flex place-items-center">
         <span>Ready for using inviting Custom to your server?</span>
       </div>
-      <div>
-        <NuxtLink href="/servers">
-          <button class="bg-[#dcc7c7] p-[10px] text-black rounded mr-[10px]">Open Dashboard</button>
-        </NuxtLink>
-        <NuxtLink href="/support">
-          <button class="bg-[#3c56a4] p-[10px] text-white rounded mr-[10px]">Documentation</button>
-        </NuxtLink>
-        <NuxtLink href="https://discord.gg/7HUDwwZjGt">
-          <button class="bg-[#3c56a4] p-[10px] text-white rounded">Support Server</button>
-        </NuxtLink>
-      </div>
+      <ActionRow />
     </div>
     <Separator />
     <div class="pr-[5%] pl-[5%] my-[50px]">
@@ -75,7 +73,7 @@
         <span class="white text-[50px] bold text-white mt-[120px] flex justify-center items-center">Custom</span>
       </div>
       <div>
-        <a href="https://github.com/custom-fail/">Support Server</a><br>
+        <a href="https://discord.gg/7HUDwwZjGt">Support Server</a><br>
         <a :href="inviteUrl">Invite bot</a><br>
         <a href="https://github.com/custom-fail/">Github</a>
       </div>
@@ -90,6 +88,7 @@
 
 <script setup>
 import Separator from "../components/content/Separator"
+import ActionRow from "../components/ActionRow";
 const inviteUrl = `https://discord.com/api/oauth2/authorize?client_id=988840106938990632&permissions=8&scope=bot%20applications.commands`
 </script>
 
