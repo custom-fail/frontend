@@ -8,7 +8,7 @@
         <div class="flex text-text place-items-center">
           <NuxtLink href="/support" class="text-[16px] mr-[40px]">Documentation</NuxtLink>
           <NuxtLink href="https://discord.gg/7HUDwwZjGt" class="mr-[50px] text-[16px]">Discord Server</NuxtLink>
-          <NuxtLink :href="/servers"><button class="h-[50px] bg-white mr-[50px] rounded p-[10px] text-black">Open Dashboard</button></NuxtLink>
+          <NuxtLink href="/servers"><button class="h-[50px] bg-white mr-[50px] rounded p-[10px] text-black">Open Dashboard</button></NuxtLink>
         </div>
       </nav>
     </div>
