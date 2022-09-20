@@ -1,36 +1,26 @@
 <template>
-  <div class="grid grid-cols-2 gap-[20px]">
+  <div>
     <Container>
-      <Title>Basic Rules</Title>
-      <Separator />
-      <div>
-        <div v-for="rule in basicRules"
-          :class="[
-              `w-full bg-selected rounded m-[5px] p-[5px] h-[60px] text-text flex justify-between`,
-              rule.enabled ? `` : ``
-          ]"
-        >
-          <span class="ml-[20px]">
-            {{ rule.name }}
-          </span>
-          <Switch v-model="rule.enabled" class="w-[200px]" />
+      <NuxtLink href="automod/custom">
+        <div class="w-full h-[80px] bg-visible hover:bg-selected rounded cursor-pointer flex justify-between place-items-center px-[3%] mb-[20px]">
+          <span>Custom Rules</span>
+          <ChevronRight />
         </div>
-      </div>
-    </Container>
-    <Container>
-      <Title>Custom Rules</Title>
-      <Separator />
+      </NuxtLink>
+      <NuxtLink href="automod/basic">
+        <div class="w-full h-[80px] bg-visible hover:bg-selected rounded cursor-pointer flex justify-between place-items-center px-[3%]">
+          <span>Basic Rules</span>
+          <ChevronRight />
+        </div>
+      </NuxtLink>
     </Container>
   </div>
-
 </template>
 
 <script setup>
 import Container from "../../../../components/content/Container"
-import Title from "../../../../components/content/Title"
 import { ref } from "vue"
-import Separator from "../../../../components/content/Separator";
-import {Switch} from "@headlessui/vue";
+import ChevronRight from "../../../../components/icons/ChevronRight";
 
 const basicRules = ref([
   { name: "Scam links", enabled: false },
