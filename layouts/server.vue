@@ -3,7 +3,7 @@
     <Sidebar />
     <main>
       <Navbar />
-      <div class="h-[calc(100vh - 80px)] bg-background w-full overflow-y-scroll mt-[80px] text-white">
+      <div class="h-[calc(100vh-80px)] bg-background w-full overflow-y-scroll mt-[80px] text-white">
         <div class="m-[20px] flex justify-center page">
           <div class="max-w-[1500px] w-full">
             <slot />
