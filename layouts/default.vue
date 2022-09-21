@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="w-full">
-      <nav class="w-full absolute top-0 left-0 h-[80px] bg-background z-20 flex justify-between items-center">
+      <nav :class="[
+          `w-full top-0 left-0 h-[80px] bg-background z-20 flex justify-between items-center`,
+          open ? `fixed` : ``
+          ]">
         <div class="ml-[60px]">
           <CustomName />
         </div>
@@ -23,7 +26,6 @@
         <slot />
       </div>
     </div>
-
   </div>
 </template>
 
