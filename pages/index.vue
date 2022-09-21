@@ -1,6 +1,6 @@
 <template>
   <div class="scroll-smooth text-white all">
-    <div class="first flex place-items-center justify-center px-[10%] loaded">
+    <div class="first loaded">
       <div>
         <span class="text-[40px]">Custom</span><br>
         <span>Bot that will help you moderate your discord server</span>
@@ -8,13 +8,12 @@
       </div>
       <img
           src="https://cdn.discordapp.com/attachments/845700949813100564/1011252863235796992/0da14416-65b4-4b14-8d61-89fc71339d32_progress_image_0.webp"
-          class="rounded-full h-[350px] ml-[80px]"
       />
     </div>
     <Separator />
     <div class="pr-[5%] pl-[5%] bg-[#121313] my-[50px]">
       <div>
-        <div class="flex justify-between loaded">
+        <div class="moderation loaded">
           <div class="flex justify-center place-items-center">
             <div class="mb-[20px]">
               <span class="text-3xl font-bold mb-[20px]">
@@ -26,50 +25,49 @@
                   {{ text }}
                 </div>
               </div>
-
             </div>
           </div>
-          <img src="/img/previews/AntiDuplicate.svg" class="w-[35%] ml-[5%] mb-[60px]">
+          <img src="/img/previews/AntiDuplicate.svg">
         </div>
-        <div class="flex loaded">
-          <img src="/img/previews/CaseLast.svg" class="w-[35%]">
-          <img src="/img/previews/AutoMod.svg" class="w-[35%] ml-[60px]">
-          <img src="/img/previews/AutoModLogs.svg" class="w-[35%] ml-[60px]">
-          <img src="/img/previews/Timeout.svg" class="w-[35%] ml-[60px]">
+        <div class="image-row loaded">
+          <img src="/img/previews/CaseLast.svg">
+          <img src="/img/previews/AutoMod.svg">
+          <img src="/img/previews/AutoModLogs.svg">
+          <img src="/img/previews/Timeout.svg">
         </div>
       </div>
     </div>
     <Separator />
-    <div class="flex justify-between mx-[15%] my-[50px] loaded">
+    <div class="action-row-2 loaded">
       <div class="flex place-items-center">
         <span>Ready for using inviting Custom to your server?</span>
       </div>
       <ActionRow />
     </div>
     <Separator />
-    <div class="pr-[5%] pl-[5%] my-[50px]">
-      <div class="flex justify-center mb-[100px] loaded">
-        <img class="w-[35%] max-w-[500px] mr-[30px]" src="/img/previews/ContextMenus.svg" />
-        <div class="place-items-center grid">
+    <div class="px-[5%] my-[50px]">
+      <div class="why-us loaded">
+        <img class="why-us-image" src="/img/previews/ContextMenus.svg" />
+        <div class="why-us-item">
           <div>
-            <span class="text-white text-[20px]">Context menus</span><br>
+            <span class="title">Context menus</span><br>
             <span>Compatible with a discord latest features to improve your experience</span>
           </div>
         </div>
       </div>
-      <div class="flex justify-center loaded">
-        <div class="place-items-center grid">
+      <div class="why-us mobile-reverted loaded">
+        <div class="why-us-item">
           <div>
-            <span class="text-white text-[20px]">Modals/Forms</span><br>
+            <span class="title">Modals/Forms</span><br>
             <span>We are making everything intuitive. Accessibility is our top priority!</span>
           </div>
         </div>
-        <img class="w-[35%] max-w-[500px] ml-[30px]" src="/img/previews/Modals.svg" />
+        <img class="why-us-image" src="/img/previews/Modals.svg" />
       </div>
     </div>
     <Separator />
     <div class="h-[300px] w-full grid grid-cols-3 text-text text-center">
-      <div class="logobox">
+      <div class="logo-box">
         <span class="white text-[50px] bold text-white mt-[120px] flex justify-center items-center">Custom</span>
       </div>
       <div>
@@ -98,7 +96,6 @@ definePageMeta({
 })
 
 onMounted(() => {
-  console.log("ok")
   const onElementObserved = (entries) => {
     entries.forEach(({target, isIntersecting}) => {
       console.log(target)
@@ -127,15 +124,52 @@ onBeforeRouteLeave(() => {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: calc(100vh - 80px - 20px - 20px);
+  min-height: calc(100vh - 80px - 20px - 20px);
+  @apply flex place-items-center justify-center;
 }
 
-.loaded {
-  opacity: 0;
+@media only screen and (max-width: 790px) {
+  .image-row > img { @apply my-[10px] }
+  .first { @apply text-center px-[10%] }
+  .first > img { @apply hidden }
+  .why-us {
+    @apply flex;
+    flex-direction: column;
+  }
+  .why-us { @apply flex justify-center mb-[100px] }
+  .why-us > img { @apply w-full p-[5%] }
+  .mobile-reverted { flex-direction: column-reverse }
+
+  .action-row-2 { @apply mx-[10%] my-[50px] text-center }
+  .action-row-2 > div > span { @apply mb-[10px] text-center }
+
+  .moderation > img { @apply w-full my-[10px] }
+
+  .logo-box { @apply hidden }
 }
 
+@media only screen and  (min-width: 791px) {
+  .image-row { @apply grid grid-cols-4 gap-[60px] }
+  .first { @apply px-[10%] }
+  .first > img { @apply ml-[80px] h-[350px] }
+
+  .why-us > div { @apply place-items-center grid }
+  .why-us { @apply flex justify-center mb-[100px] }
+  .why-us > img { @apply w-[35%] max-w-[500px] mr-[30px] }
+  .mobile-reverted > img { @apply w-[35%] max-w-[500px] ml-[30px] }
+  .action-row-2 { @apply flex justify-between mx-[15%] my-[50px] loaded }
+  .moderation { @apply flex justify-between }
+  .moderation > img { @apply w-[35%] ml-[5%] mb-[60px] }
+}
+
+.first > img { @apply rounded-full }
+.image-row > img { @apply w-full p-[5%] }
+
+.loaded { @apply opacity-0 }
 .shown {
-  opacity: 100;
-  transition: all 2s;
+  @apply opacity-100;
+  transition: opacity 2s;
 }
+
+/*.why-us > div >*/ .title { @apply text-white text-[20px] }
 </style>

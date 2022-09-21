@@ -1,13 +1,19 @@
 <template>
   <div>
     <NuxtLink href="/servers">
-      <button class="bg-[#dcc7c7] p-[10px] text-black rounded mr-[10px]">Open Dashboard</button>
+      <button class="bg-[#dcc7c7] text-black action-button">Open Dashboard</button>
     </NuxtLink>
     <NuxtLink href="/support">
-      <button class="bg-[#3c56a4] p-[10px] text-white rounded mr-[10px]">Documentation</button>
+      <button class="bg-[#3c56a4] text-white action-button">Documentation</button>
     </NuxtLink>
     <NuxtLink href="https://discord.gg/7HUDwwZjGt">
-      <button class="bg-[#3c56a4] p-[10px] text-white rounded">Support Server</button>
+      <button class="bg-[#3c56a4] text-white action-button">Support Server</button>
     </NuxtLink>
   </div>
 </template>
+
+<style>
+.action-button {
+  @apply p-[10px] rounded mr-[10px] mb-[10px]
+}
+</style>
