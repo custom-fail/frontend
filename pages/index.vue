@@ -1,6 +1,6 @@
 <template>
-  <div class="scroll-smooth text-white">
-    <div class="first flex place-items-center justify-center px-[10%]">
+  <div class="scroll-smooth text-white all">
+    <div class="first flex place-items-center justify-center px-[10%] loaded">
       <div>
         <span class="text-[40px]">Custom</span><br>
         <span>Bot that will help you moderate your discord server</span>
@@ -14,7 +14,7 @@
     <Separator />
     <div class="pr-[5%] pl-[5%] bg-[#121313] my-[50px]">
       <div>
-        <div class="flex justify-between">
+        <div class="flex justify-between loaded">
           <div class="flex justify-center place-items-center">
             <div class="mb-[20px]">
               <span class="text-3xl font-bold mb-[20px]">
@@ -31,7 +31,7 @@
           </div>
           <img src="/img/previews/AntiDuplicate.svg" class="w-[35%] ml-[5%] mb-[60px]">
         </div>
-        <div class="flex">
+        <div class="flex loaded">
           <img src="/img/previews/CaseLast.svg" class="w-[35%]">
           <img src="/img/previews/AutoMod.svg" class="w-[35%] ml-[60px]">
           <img src="/img/previews/AutoModLogs.svg" class="w-[35%] ml-[60px]">
@@ -40,7 +40,7 @@
       </div>
     </div>
     <Separator />
-    <div class="flex justify-between mx-[15%] my-[50px]">
+    <div class="flex justify-between mx-[15%] my-[50px] loaded">
       <div class="flex place-items-center">
         <span>Ready for using inviting Custom to your server?</span>
       </div>
@@ -48,7 +48,7 @@
     </div>
     <Separator />
     <div class="pr-[5%] pl-[5%] my-[50px]">
-      <div class="flex justify-center mb-[100px]">
+      <div class="flex justify-center mb-[100px] loaded">
         <img class="w-[35%] max-w-[500px] mr-[30px]" src="/img/previews/ContextMenus.svg" />
         <div class="place-items-center grid">
           <div>
@@ -57,7 +57,7 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center loaded">
         <div class="place-items-center grid">
           <div>
             <span class="text-white text-[20px]">Modals/Forms</span><br>
@@ -89,7 +89,36 @@
 <script setup>
 import Separator from "../components/content/Separator"
 import ActionRow from "../components/ActionRow";
+import {onMounted} from "vue";
+import { onBeforeRouteLeave } from "vue-router";
 const inviteUrl = `https://discord.com/api/oauth2/authorize?client_id=988840106938990632&permissions=8&scope=bot%20applications.commands`
+
+definePageMeta({
+  layout: "main"
+})
+
+onMounted(() => {
+  console.log("ok")
+  const onElementObserved = (entries) => {
+    entries.forEach(({target, isIntersecting}) => {
+      console.log(target)
+      if (isIntersecting) target.classList.add("shown")
+    })
+  }
+
+  const observer = new IntersectionObserver(
+      onElementObserved
+  );
+
+  window.mainPageObserver = observer
+
+  document.querySelectorAll(".loaded").forEach(el => observer.observe(el))
+})
+
+onBeforeRouteLeave(() => {
+  console.log("ok")
+  window.mainPageObserver.disconnect()
+})
 </script>
 
 <style>
@@ -99,5 +128,14 @@ const inviteUrl = `https://discord.com/api/oauth2/authorize?client_id=9888401069
   background-position: center;
   background-repeat: no-repeat;
   height: calc(100vh - 80px - 20px - 20px);
+}
+
+.loaded {
+  opacity: 0;
+}
+
+.shown {
+  opacity: 100;
+  transition: all 2s;
 }
 </style>
