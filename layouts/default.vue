@@ -20,11 +20,8 @@
         </div>
       </nav>
     </div>
-    <div class="h-100vh">
-      <div class="h-[80px]"></div>
-      <div class="w-full bg-background">
-        <slot />
-      </div>
+    <div class="w-full bg-background h-[calc(100vh-80px)]">
+      <slot />
     </div>
   </div>
 </template>
