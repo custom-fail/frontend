@@ -1,7 +1,6 @@
 <template>
-  <main class="p-[50px] align-middle">
+  <Container>
     <disclosure as="div" :defaultOpen="true"
-                class="w-full p-[24px] bg-containers rounded max-w-[1500px] mb-8 "
                 v-for="section in data" v-slot="{ open }">
       <div class="flex justify-between">
         <span class="text-[26px] text-white">{{ section.name }}</span>
@@ -22,7 +21,7 @@
       >
         <disclosure-panel>
           <Separator />
-          <div class="grid grid-cols-3">
+          <div class="plugins-list">
             <NuxtLink v-for="plugin in section
             .plugins" :to="`/servers/${$route.params.id}/${plugin.to}`">
               <div class="bg-visible rounded p-[20px] m-[5px] hover:bg-hover hover:cursor-pointer">
@@ -35,13 +34,14 @@
         </disclosure-panel>
       </transition>
     </disclosure>
-  </main>
+  </Container>
 </template>
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import ChevronUp from "../../../components/icons/ChevronUp";
 import Separator from "../../../components/content/Separator"
+import Container from "../../../components/content/Container";
 
 definePageMeta({
   layout: "server"
@@ -67,3 +67,21 @@ const data = [{
   }]
 }]
 </script>
+
+<style>
+.plugins-list {
+  @apply grid
+}
+
+@media (min-width: 768px) {
+  .plugins-list {
+    @apply grid-cols-2
+  }
+}
+
+@media (min-width: 1024px) {
+  .plugins-list {
+    @apply grid-cols-3
+  }
+}
+</style>

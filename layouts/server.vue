@@ -1,7 +1,7 @@
 <template>
   <div class="server-layout">
     <SwapSidebar
-        v-if="screenWidth < 791" class="z-50" v-model="isSidebarOpen"
+        v-if="screenWidth < 820" class="z-50" v-model="isSidebarOpen"
     >
       <Sidebar />
     </SwapSidebar>
@@ -50,7 +50,7 @@ onUnmounted(() => {
 </script>
 
 <style>
-@media only screen and (min-width: 791px) {
+@media only screen and (min-width: 820px) {
   .server-layout {
     @apply grid grid-cols-[300px,1fr];
   }
