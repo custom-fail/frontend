@@ -14,6 +14,6 @@ const avatar = "https://cdn.discordapp.com/icons/898986393177567242/2c79cf25dbdd
 
 <style>
 .avatar {
-  box-shadow: 0px 0px 50px #6e5f3e;
+  box-shadow: 0 0 50px #6e5f3e;
 }
 </style>

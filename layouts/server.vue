@@ -47,6 +47,10 @@ onUnmounted(() => {
     screenWidth.value = window.innerWidth
   })
 })
+
+definePageMeta({
+  middleware: ["auth"]
+})
 </script>
 
 <style>

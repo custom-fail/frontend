@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="sidebar z-50 fixed h-screen w-[300px] bg-black top-0 transition-transform transform ease-linear duration-50" :style="[
-       mouseClicked ? `transform: translateX(${calcMargin(cursorPosition, startedClickAt, modelValue)}px)`: ``,
-       !mouseClicked ? modelValue ? `transform: translateX(0px)` : `transform: translateX(-300px)` : ``
+       mouseClicked ? `transform: translateX(${calcMargin(cursorPosition, startedClickAt, isSidebarOpen)}px)`: ``,
+       !mouseClicked ? isSidebarOpen ? `transform: translateX(0px)` : `transform: translateX(-300px)` : ``
    ]">
       <slot />
     </div>
     <div :class="[
         `h-screen z-40 fixed top-0 left-0 w-full bg-black transition-opacity duration-600`,
-        modelValue ? `opacity-50` : `hidden opacity-0`
+        isSidebarOpen ? `opacity-50` : `hidden opacity-0`
     ]" @click="toggleSidebar()"></div>
   </div>
 </template>
@@ -17,8 +17,8 @@
 import {ref, watch} from "vue"
 
 const {modelValue} = defineProps(["modelValue"])
-const emit = defineEmits(["update:modelValue"])
-const isSidebarOpen = ref(false)
+const $emit = defineEmits(["update:modelValue"])
+const isSidebarOpen = ref(modelValue || false)
 
 const cursorPosition = ref({ x: 0, y: 0})
 const mouseClicked = ref(false)
@@ -26,7 +26,7 @@ const startedClickAt = ref({ x: 0, y: 0 })
 
 const toggleSidebar = () => {
   isSidebarOpen.value = !isSidebarOpen.value
-  emit("update:modelValue", isSidebarOpen.value)
+  $emit("update:modelValue", isSidebarOpen.value)
 }
 
 const updateMouseClickedStatus = (e) => {
@@ -46,10 +46,10 @@ const onTouchEnd = () => {
 const updateTouchPosition = (e) => cursorPosition.value = { x: e.touches[0].clientX, y: e.touches[0].clientY }
 const updateCursorPosition = (e) => cursorPosition.value = { x: e.pageX, y: e.pageY }
 
-const calcMargin = (cursorPosition, startedClickAt, modelValue) => {
+const calcMargin = (cursorPosition, startedClickAt, value) => {
   const movedFor = cursorPosition.x - startedClickAt.x
-  const reachedLimit = modelValue ? movedFor > 0 : movedFor > 300
-  const margin = modelValue ? 0 : -300
+  const reachedLimit = value ? movedFor > 0 : movedFor > 300
+  const margin = value ? 0 : -300
   return (reachedLimit ? 0 : movedFor + margin)
 }
 

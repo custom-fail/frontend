@@ -1,6 +1,7 @@
 <template>
   <NuxtLayout>
     <!-- Markup shared across all pages, ex: NavBar -->
+    <NuxtLoadingBar :duration="1000" />
     <NuxtPage />
   </NuxtLayout>
 </template>
@@ -8,6 +9,7 @@
 <style>
 body {
   background-color: #121212;
+  overflow-x: hidden;
 }
 
 .inherit {

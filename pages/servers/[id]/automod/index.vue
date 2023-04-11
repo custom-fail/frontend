@@ -2,13 +2,13 @@
   <div>
     <Container>
       <NuxtLink href="automod/custom">
-        <div class="w-full h-[80px] bg-visible hover:bg-selected rounded cursor-pointer flex justify-between place-items-center px-[3%] mb-[20px]">
+        <div class="rule-box">
           <span>Custom Rules</span>
           <ChevronRight />
         </div>
       </NuxtLink>
       <NuxtLink href="automod/basic">
-        <div class="w-full h-[80px] bg-visible hover:bg-selected rounded cursor-pointer flex justify-between place-items-center px-[3%]">
+        <div class="rule-box">
           <span>Basic Rules</span>
           <ChevronRight />
         </div>
@@ -33,3 +33,9 @@ definePageMeta({
   layout: "server"
 })
 </script>
+
+<style>
+.rule-box {
+  @apply w-full h-[80px] bg-visible hover:bg-selected rounded cursor-pointer flex justify-between place-items-center px-[3%] mb-[20px]
+}
+</style>

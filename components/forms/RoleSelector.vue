@@ -34,14 +34,14 @@ import ShieldCheck from "../icons/ShieldCheck";
 import ChevronUpDown from "../icons/ChevronUpDown";
 
 let { modelValue, roles } = defineProps(["modelValue", "roles"])
+defineEmits(["update:modelValue"])
+
 let query = ref('')
 let show = ref(false)
 
 let selectedRole = computed(() => {
   return roles.find((r) => r.id === modelValue)?.name
 })
-
-defineEmits(["update:modelValue"])
 
 let matchingRoles = computed(() => {
   return query.value === ''

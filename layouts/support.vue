@@ -1,8 +1,8 @@
 <template>
   <div>
-    <NuxtLayout name="default" class="w-full h-screen flex">
-      <div class="w-full flex">
-        <div class="bg-selected w-[320px] min-w-[320px] max-w-[320px] h-[calc(100vh-80px)] overflow-y p-[20px] text-text">
+    <NuxtLayout name="default" class="w-full h-screen">
+      <div class="w-[80%] flex mx-[5%]">
+        <div class="ml-[10px] rounded-xl w-[320px] min-w-[320px] max-w-[320px] h-[calc(100vh-90px)] p-[20px] text-text">
           <div v-for="section in sections">
             <span class="text-white text-[20px]">{{ section.name }}</span>
             <div>
@@ -12,7 +12,7 @@
             </div>
           </div>
         </div>
-        <div class="p-[20px] overflow-y w-full h-[calc(100vh-80px)] text-text">
+        <div class="p-[20px] w-full text-text pr-[5%]">
           <NuxtPage />
         </div>
       </div>
@@ -21,18 +21,7 @@
 </template>
 
 <script setup>
-const sections = [{
-  name: "Server setup",
-  pages: [{ name: "Adding bot to your server", url: "setup" }]
-}, {
-  name: "Basic concepts",
-  pages: [{ name: "Commands permissions and visibility", url: "commands" }]
-}, {
-  name: "Configuration",
-  pages: [
-      { name: "Bans, Kicks, Mutes, Warns", url: "execution" },
-      { name: "Auto moderation", url: "automod" },
-      { name: "Cases (Saving punishments data)", url: "cases" }
-  ]
-}]
+import { useSupportSectionsData } from "~/composables/support";
+const sections = useSupportSectionsData()
+console.log(sections)
 </script>

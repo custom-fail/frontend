@@ -19,8 +19,8 @@
           </div>
         </div>
       </div>
-      <div v-else>
-        Loading...
+      <div v-else class="flex place-items-center">
+        <div class="text-white text-large">Loading...</div>
       </div>
     </div>
   </div>
@@ -28,17 +28,26 @@
 </template>
 
 <script setup>
-const guilds = [
-  {
-    name: "PYRAX - Ziemniaczany Serwer Discord",
-    id: "404004695703814149",
-    icon_url: "https://cdn.discordapp.com/icons/404004695703814149/a_bcd06977a24274826f4ce134aef8a614.jpg"
-  }, {
-    name: "Test Server",
-    id: "4040046957038141492",
-    icon_url: "https://cdn.discordapp.com/icons/898986393177567242/2c79cf25dbdd75dedb487063b6f08eca.webp?size=160"
-  }
-]
+definePageMeta({
+  middleware: "auth",
+  ssr: false
+})
+
+const { getGuilds } = useLoginControls()
+
+const guilds = ref(await getGuilds());
+
+// const guilds = [
+//   {
+//     name: "PYRAX - Ziemniaczany Serwer Discord",
+//     id: "404004695703814149",
+//     icon_url: "https://cdn.discordapp.com/icons/404004695703814149/a_bcd06977a24274826f4ce134aef8a614.jpg"
+//   }, {
+//     name: "Test Server",
+//     id: "4040046957038141492",
+//     icon_url: "https://cdn.discordapp.com/icons/898986393177567242/2c79cf25dbdd75dedb487063b6f08eca.webp?size=160"
+//   }
+// ]
 </script>
 
 <style>
@@ -69,9 +78,10 @@ const guilds = [
   transform: translateX(-5%) translateY(calc((270px - 100%) / 2));
   position: relative;
 }
+
 .icon {
   grid-row: 2 / 2;
   grid-column: 2 / 2;
-  z-index: 10;
+  z-index: 2;
 }
 </style>

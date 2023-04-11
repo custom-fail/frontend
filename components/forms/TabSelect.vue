@@ -2,7 +2,7 @@
   <div class="w-full max-w-xl sm:px-0">
     <RadioGroup
         class="flex space-x-1 rounded-xl bg-visible p-1"
-        v-model="modelValue" @update:modelValue="$emit(`update:modelValue`, $event)"
+        v-model="selected" @update:modelValue="$emit(`update:modelValue`, $event)"
     >
       <RadioGroupOption
           v-for="tab in tabs"
@@ -30,4 +30,7 @@
 <script setup>
 import { RadioGroup, RadioGroupOption } from "@headlessui/vue"
 let { modelValue, tabs } = defineProps(["modelValue", "tabs"])
+defineEmits(["update:modelValue"])
+
+let selected = ref(modelValue)
 </script>

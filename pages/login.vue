@@ -7,10 +7,21 @@
 </template>
 
 <script setup>
-// const { send } = useLoginBroadcast()
-//
-// import { onMounted } from 'vue'
-// onMounted(send)
+const { send } = useLoginBroadcast()
+const { login } = useLoginControls()
+
+import { onMounted } from 'vue'
+onMounted(async () => {
+  const code = useRoute().query.code
+  await login(code);
+  const redirectTo = localStorage.getItem("redirectTo")
+  if(redirectTo) localStorage.removeItem("returnPage")
+  send()
+  return navigateTo({
+    path: redirectTo || "/servers"
+  })
+})
+
 definePageMeta({
   layout: "none"
 })

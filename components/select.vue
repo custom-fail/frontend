@@ -30,5 +30,9 @@
 
 <script setup>
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@headlessui/vue"
-const { selected, options } = defineProps(['selected, options'])
+const { modelValue, options } = defineProps(['modelValue, options'])
+const $emit = defineEmits(['update:modelValue'])
+let selected = ref(modelValue)
+
+watch(selected, (v) => $emit('update:modelValue', v))
 </script>

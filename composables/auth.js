@@ -2,30 +2,52 @@ import {onMounted, onUnmounted, ref} from 'vue'
 
 const loginUrl = "https://discord.com/api/oauth2/authorize?client_id=810280511192432642&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin&response_type=code&scope=identify%20guilds"
 
-export const useAuth = () => {
-    const { user, authenticated } = window
+export const useAuth = async () => {
+    const { user, authenticated, authLoaded } = window
+    if (!authLoaded) {
+        console.log("tak")
+        const token = localStorage.getItem("token")
+        console.log(token)
+        if (!token) return ({ authenticated: false, user: null })
+        console.log("nie")
+        const res = await fetch(`http://localhost/users/@me`, {
+            headers: { Authorization: token }
+        })
+
+        if(res.status !== 200) {
+            localStorage.removeItem("token");
+            return { authenticated: false, user: null }
+        }
+
+        const userData = await res.json()
+
+        window.authenticated = true
+        window.authLoaded = true
+        window.user = userData
+
+        return { user: userData, authenticated: true }
+    }
+
     return { user, authenticated }
 }
 
 export const useLoginControls = () => {
 
     const login = async (code) => {
-        const { query } = useRoute()
-
         const params = new URLSearchParams()
         params.append("code", code)
 
-        const response = await $fetch(`/api/login?${params}`)
-        if(response.status !== 200) return
+        const res = await fetch(`http://localhost/login?${params}`)
+        if(res.status !== 200) return console.log("tak", res.status)
 
-        const { user, token } = await response.json()
+        const { user, token } = await res.json()
 
         window.authenticated = true
+        window.authLoaded = true
         window.user = user
 
         localStorage.setItem("token", token)
-
-        await navigateTo(query.redirect_to || "/servers")
+        console.log("done")
     }
 
     const listen = () => {
@@ -36,7 +58,17 @@ export const useLoginControls = () => {
         }
     }
 
-    return { login, listen }
+    const getGuilds = async () => {
+        const res = await fetch(`http://localhost/users/@me/guilds`, {
+            headers: { Authorization: localStorage.getItem("token") }
+        })
+
+        if(res.status !== 200) return console.log("tak", res.status)
+
+        return await res.json()
+    }
+
+    return { login, listen, getGuilds }
 
 }
 

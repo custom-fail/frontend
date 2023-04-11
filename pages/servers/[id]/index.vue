@@ -79,7 +79,7 @@ const data = [{
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1300px) {
   .plugins-list {
     @apply grid-cols-3
   }
