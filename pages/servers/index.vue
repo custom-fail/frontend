@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="flex justify-center mt-[20px]">
-      <div v-if="guilds" class="list grid">
-        <div v-for="guild in guilds" class="mb-[60px]">
+      <div class="list grid">
+        <div v-for="guild in guilds || []" class="mb-[60px]">
           <div class="h-[200px] w-[300px] rounded w-full overflow-y-hidden overflow-x-hidden grid grid-cols-3 grid-rows-3">
             <img :src="guild.icon_url" class="w-[110%] blur max-w-[110%] relative icon-bg rounded-[1rem]">
             <div class="icon w-full max-h-full h-[1000px] flex items-center justify-center align-middle">
@@ -19,9 +19,6 @@
           </div>
         </div>
       </div>
-      <div v-else class="flex place-items-center">
-        <div class="text-white text-large">Loading...</div>
-      </div>
     </div>
   </div>
 
@@ -36,18 +33,6 @@ definePageMeta({
 const { getGuilds } = useLoginControls()
 
 const guilds = ref(await getGuilds());
-
-// const guilds = [
-//   {
-//     name: "PYRAX - Ziemniaczany Serwer Discord",
-//     id: "404004695703814149",
-//     icon_url: "https://cdn.discordapp.com/icons/404004695703814149/a_bcd06977a24274826f4ce134aef8a614.jpg"
-//   }, {
-//     name: "Test Server",
-//     id: "4040046957038141492",
-//     icon_url: "https://cdn.discordapp.com/icons/898986393177567242/2c79cf25dbdd75dedb487063b6f08eca.webp?size=160"
-//   }
-// ]
 </script>
 
 <style>
