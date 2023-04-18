@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-const avatar = "https://cdn.discordapp.com/icons/898986393177567242/2c79cf25dbdd75dedb487063b6f08eca.png?size=160"
+const avatar = "https://cdn.discordapp.com/avatars/988840106938990632/e2079f59cbdd75708bd2f6894d7ece24.png?size=256"
 </script>
 
 <style>
