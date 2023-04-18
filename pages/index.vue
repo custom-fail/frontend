@@ -10,7 +10,7 @@
           <div class="p-[10px] text-[20px] mt-[10px] text-black rounded animation-bg w-[190px] text-center cursor-pointer">Apply for access</div>
         </div>
       </div>
-      <div class="w-2/5"></div>
+      <div class="w-2/5 hide-whitespace"></div>
       <PreviewFirst />
     </div>
 
@@ -175,6 +175,7 @@ onBeforeRouteLeave(() => {
 @media only screen and (max-width: 791px) {
   .description { @apply text-center }
   .apply { @apply flex justify-center }
+  .hide-whitespace { display: none }
 }
 
 @media only screen and (min-width: 1100px) {
