@@ -12,7 +12,7 @@
             <disclosure-button class="h-[24px] w-[24px]">
               <ChevronUp
                   :class="!open ? 'transform rotate-180' : ''"
-                  class="h-[24px] w-[24px] text-white z-0 right-0 transform transition-transform duration-300"
+                  class="h-[24px] w-[24px] text-white z-[0] right-0 transform transition-transform duration-300"
               />
             </disclosure-button>
           </div>

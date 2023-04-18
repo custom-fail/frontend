@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <nav :class="[
-          `w-full top-0 left-0 h-[80px] bg-${bgColor} flex justify-between items-center`,
+          `w-full top-0 left-0 h-[80px] bg-${bgColor} flex justify-between items-center z-[1] absolute`,
           open ? `fixed` : ``
           ]">
       <div class="ml-[60px] z-20 ">
@@ -18,6 +18,7 @@
         </div>
       </div>
     </nav>
+    <div class="w-full h-[80px]"></div>
   </div>
 </template>
 

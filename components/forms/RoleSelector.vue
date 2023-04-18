@@ -10,7 +10,7 @@
     </div>
     <div
         v-if="show"
-        class="bg-visible w-[250px] p-[10px] rounded mt-[5px] absolute block z-1 block"
+        class="bg-visible w-[250px] p-[10px] rounded mt-[5px] absolute block z-[1] block"
     >
       <input v-model="query" class="bg-hover rounded h-[30px] w-full pl-[5px] pr-[5px] mb-[6px]">
       <div>
