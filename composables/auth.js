@@ -5,11 +5,9 @@ const loginUrl = "https://discord.com/api/oauth2/authorize?client_id=81028051119
 export const useAuth = async () => {
     const { user, authenticated, authLoaded } = window
     if (!authLoaded) {
-        console.log("tak")
         const token = localStorage.getItem("token")
-        console.log(token)
         if (!token) return ({ authenticated: false, user: null })
-        console.log("nie")
+
         const res = await fetch(`http://localhost/users/@me`, {
             headers: { Authorization: token }
         })
