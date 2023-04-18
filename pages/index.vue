@@ -10,78 +10,58 @@
           <div class="p-[10px] text-[20px] mt-[10px] text-black rounded animation-bg w-[190px] text-center cursor-pointer">Apply for access</div>
         </div>
       </div>
+      <div class="w-2/5"></div>
       <PreviewFirst />
     </div>
-    <Separator />
-    <div class="pr-[5%] pl-[5%] my-[50px] h-[90vh] flex place-items-center justify-center">
-      <div class="text-[200px] loaded">123321123321</div>
-<!--      <div>-->
-<!--        <div class="moderation loaded">-->
-<!--          <div class="flex justify-center place-items-center">-->
-<!--            <div class="mb-[20px]">-->
-<!--              <span class="text-3xl font-bold mb-[20px]">-->
-<!--                Moderation with quality out of the box-->
-<!--              </span><br>-->
-<!--              <div class="ml-[5px]">-->
-<!--                <div class="flex" v-for="text in [`Cases (punishments saving)`, `Auto Moderation`, `Utils commands`]">-->
-<!--                  <img class="h-[25px]" src="/img/icons8-approved-checkmark-symbol-to-verify-the-result.svg">-->
-<!--                  {{ text }}-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <img src="/img/previews/AntiDuplicate.svg">-->
-<!--        </div>-->
-<!--        <div class="image-row loaded">-->
-<!--          <img src="/img/previews/CaseLast.svg">-->
-<!--          <img src="/img/previews/AutoMod.svg">-->
-<!--          <img src="/img/previews/AutoModLogs.svg">-->
-<!--          <img src="/img/previews/Timeout.svg">-->
-<!--        </div>-->
-<!--      </div>-->
-    </div>
-    <Separator />
-    <div class="action-row-2 loaded">
-      <div class="flex place-items-center">
-        <span>Ready for using Custom in your server?</span>
+
+    <div class="z-[1] absolute bg-black w-full">
+      <Separator />
+      <div class="pr-[5%] pl-[5%] my-[50px] h-[90vh] flex place-items-center justify-center">
+        <div class="text-[200px] loaded">123321123321</div>
       </div>
-      <ActionRow />
-    </div>
-    <Separator />
-    <div class="px-[5%] my-[50px]">
-      <div class="why-us loaded">
-        <img class="why-us-image" src="/img/previews/ContextMenus.svg" />
-        <div class="why-us-item">
-          <div>
-            <span class="title">Context menus</span><br>
-            <span>Compatible with a discord latest features to improve your experience</span>
-          </div>
+      <Separator />
+      <div class="action-row-2 loaded">
+        <div class="flex place-items-center">
+          <span>Ready for using Custom in your server?</span>
         </div>
+        <ActionRow />
       </div>
-      <div class="why-us mobile-reverted loaded">
-        <div class="why-us-item">
-          <div>
-            <span class="title">Modals/Forms</span><br>
-            <span>We are making everything intuitive. Accessibility is our top priority!</span>
-          </div>
+      <Separator />
+      <!--    <div class="px-[5%] my-[50px]">-->
+      <!--      <div class="why-us loaded">-->
+      <!--        <img class="why-us-image" src="/img/previews/ContextMenus.svg" />-->
+      <!--        <div class="why-us-item">-->
+      <!--          <div>-->
+      <!--            <span class="title">Context menus</span><br>-->
+      <!--            <span>Compatible with a discord latest features to improve your experience</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--      <div class="why-us mobile-reverted loaded">-->
+      <!--        <div class="why-us-item">-->
+      <!--          <div>-->
+      <!--            <span class="title">Modals/Forms</span><br>-->
+      <!--            <span>We are making everything intuitive. Accessibility is our top priority!</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--        <img class="why-us-image" src="/img/previews/Modals.svg" />-->
+      <!--      </div>-->
+      <!--    </div>-->
+      <!--    <Separator />-->
+      <div class="h-[300px] w-full grid grid-cols-3 text-text text-center">
+        <div class="logo-box">
+          <span class="white text-[50px] bold text-white mt-[120px] flex justify-center items-center">Custom</span>
         </div>
-        <img class="why-us-image" src="/img/previews/Modals.svg" />
-      </div>
-    </div>
-    <Separator />
-    <div class="h-[300px] w-full grid grid-cols-3 text-text text-center">
-      <div class="logo-box">
-        <span class="white text-[50px] bold text-white mt-[120px] flex justify-center items-center">Custom</span>
-      </div>
-      <div>
-        <a href="https://discord.gg/7HUDwwZjGt">Support Server</a><br>
-        <a :href="inviteUrl">Invite bot</a><br>
-        <a href="https://github.com/custom-fail/">Github</a>
-      </div>
-      <div>
-        <NuxtLink href="/guidelines">Assets guidelines</NuxtLink><br>
-        <NuxtLink href="/tos">Terms of service</NuxtLink><br>
-        <NuxtLink href="/privacy">Privacy policy</NuxtLink>
+        <div>
+          <a href="https://discord.gg/7HUDwwZjGt">Support Server</a><br>
+          <a :href="inviteUrl">Invite bot</a><br>
+          <a href="https://github.com/custom-fail/">Github</a>
+        </div>
+        <div>
+          <NuxtLink href="/guidelines">Assets guidelines</NuxtLink><br>
+          <NuxtLink href="/tos">Terms of service</NuxtLink><br>
+          <NuxtLink href="/privacy">Privacy policy</NuxtLink>
+        </div>
       </div>
     </div>
   </div>
@@ -117,7 +97,6 @@ onMounted(() => {
 })
 
 onBeforeRouteLeave(() => {
-  console.log("ok")
   window.mainPageObserver.disconnect()
 })
 </script>
@@ -171,7 +150,7 @@ onBeforeRouteLeave(() => {
 
 .animation-bg {
   background: linear-gradient(90deg, #dc2626 0%, #fb923c 50%, #fcd34d 100%);
-  background-size: 400% 400%;
+  background-size: 400%;
   animation: bg 10s linear infinite;
 }
 
