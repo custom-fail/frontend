@@ -20,7 +20,7 @@
           </div>
           <div class="w-full content-center h-full inherit opacity-100 z-30">
             <button
-                @click="setCommand(command, i, $event)"
+                @click="setCommand(command, $event)"
                 :class="[`opacity-[1]  p-[10px] rounded`, command.enabled ? `bg-selected` : `bg-[#1f1f1f]`]">
               {{ command.enabled ? `Disable` : `Enable` }}
             </button>
@@ -40,10 +40,9 @@ import {ref, watch} from "vue";
 let { modelValue } = defineProps(["modelValue"])
 const $emit = defineEmits(["update:modelValue"])
 
-const setCommand = (command, i, $event) => {
-  $emit(`update:modelValue`, $event)
-  console.log(i)
+const setCommand = (command, $event) => {
   command.enabled = !command.enabled
+  $emit(`update:modelValue`, modelValue)
 }
 
 </script>
