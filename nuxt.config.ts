@@ -11,5 +11,6 @@ export default defineNuxtConfig({
             "/docs": { redirect: "/support" },
             "/documentation": { redirect: "/support" },
         }
-    }
+    },
+    compatibilityDate: "2025-06-18"
 })
