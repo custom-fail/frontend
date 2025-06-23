@@ -1,9 +1,9 @@
 <template>
   <div :class="[
       `border-2 rounded p-[20px]`,
-       type === `success` ? `border-success text-success bg-success` : ``,
-       type === `warning` ? `border-warning text-warning bg-warning` : ``,
-       type === `info` ? `border-info text-info bg-info` : ``
+       type === `success` ? `border-(--border-success) text-(--text-success) bg-(--background-success)` : ``,
+       type === `warning` ? `border-(--border-warning) text-(--text-warning) bg-(--background-warning)` : ``,
+       type === `info` ? `border-info text-(--text-info) bg-(--background-info)` : ``
       ]">
     <slot />
   </div>

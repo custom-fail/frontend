@@ -59,6 +59,8 @@ definePageMeta({
 </script>
 
 <style>
+@reference "~/assets/css/main.css";
+
 .automod-input {
 @apply bg-background border border-secondary rounded p-[6px] w-[300px] text-white mr-[10px];
 }

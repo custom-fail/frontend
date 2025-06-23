@@ -58,7 +58,8 @@ definePageMeta({
 
 @media only screen and (min-width: 820px) {
   .server-layout {
-    @apply grid grid-cols-[300px,1fr];
+    @apply grid;
+    grid-template-columns: 300px 1fr;
   }
   .sidebar-open-button { @apply hidden}
 }
