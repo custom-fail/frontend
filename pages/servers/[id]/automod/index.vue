@@ -35,7 +35,7 @@ definePageMeta({
 </script>
 
 <style>
-@reference "tailwindcss";
+@reference "~/assets/css/main.css";
 
 .rule-box {
   @apply w-full h-[80px] bg-visible hover:bg-selected rounded cursor-pointer flex justify-between place-items-center px-[3%] mb-[20px]

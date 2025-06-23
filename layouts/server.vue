@@ -54,7 +54,7 @@ definePageMeta({
 </script>
 
 <style>
-@reference "tailwindcss";
+@reference "~/assets/css/main.css";
 
 @media only screen and (min-width: 820px) {
   .server-layout {

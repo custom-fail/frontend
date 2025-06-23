@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     modules: [],
-    css: ['~/assets/css/tailwind.css'],
+    css: ['~/assets/css/main.css'],
     vite: {
         plugins: [
             tailwindcss(),
