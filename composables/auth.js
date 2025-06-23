@@ -8,8 +8,11 @@ export const useAuth = async () => {
         const token = localStorage.getItem("token")
         if (!token) return ({ authenticated: false, user: null })
 
-        const res = await fetch(`http://localhost/users/@me`, {
-            headers: { Authorization: token }
+        const res = await fetch(`http://localhost/users/me`, {
+            headers: {
+                Authorization: token,
+                "User-Id": localStorage.getItem("userId"),
+            }
         })
 
         if(res.status !== 200) {
@@ -45,6 +48,7 @@ export const useLoginControls = () => {
         window.user = user
 
         localStorage.setItem("token", token)
+        localStorage.setItem("userId", user.id)
         console.log("done")
     }
 
@@ -57,8 +61,11 @@ export const useLoginControls = () => {
     }
 
     const getGuilds = async () => {
-        const res = await fetch(`http://localhost/users/@me/guilds`, {
-            headers: { Authorization: localStorage.getItem("token") }
+        const res = await fetch(`http://localhost/guilds`, {
+            headers: {
+                Authorization: localStorage.getItem("token"),
+                "User-Id": localStorage.getItem("userId")
+            }
         })
 
         if(res.status !== 200) return console.log("tak", res.status)
