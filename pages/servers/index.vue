@@ -4,9 +4,9 @@
       <div class="list grid">
         <div v-for="guild in guilds || []" class="mb-[60px]">
           <div class="h-[200px] w-[300px] rounded w-full overflow-y-hidden overflow-x-hidden grid grid-cols-3 grid-rows-3">
-            <img :src="guild.icon_url" class="w-[110%] blur max-w-[110%] relative icon-bg rounded-[1rem]">
+            <img :src="getIconUrl(guild.id, guild.icon)" class="w-[110%] blur max-w-[110%] relative icon-bg rounded-[1rem]">
             <div class="icon w-full max-h-full h-[1000px] flex items-center justify-center align-middle">
-              <img :src="guild.icon_url" alt="" class="h-[80px] rounded-full">
+              <img :src="getIconUrl(guild.id, guild.icon)" alt="" class="h-[80px] rounded-full">
             </div>
           </div>
           <div class="flex items-center justify-between w-[300px] h-[60px] p-[10px]">
@@ -30,9 +30,17 @@ definePageMeta({
   ssr: false
 })
 
+const getIconUrl = (id, icon) => {
+  return `https://cdn.discordapp.com/icons/${id}/${icon}.png`
+}
+
 const { getGuilds } = useLoginControls()
 
-const guilds = ref(await getGuilds());
+const response = await getGuilds();
+const guilds = ref(response.guilds.filter((guild) => {
+  const isAdmin = (Number(guild.permissions) & 1 << 3) === 8
+  return (isAdmin || guild.owner) && response.mutual.includes(guild.id)
+}))
 </script>
 
 <style>
