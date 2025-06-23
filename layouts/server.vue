@@ -54,6 +54,8 @@ definePageMeta({
 </script>
 
 <style>
+@reference "tailwindcss";
+
 @media only screen and (min-width: 820px) {
   .server-layout {
     @apply grid grid-cols-[300px,1fr];

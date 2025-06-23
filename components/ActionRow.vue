@@ -13,6 +13,8 @@
 </template>
 
 <style>
+@reference "tailwindcss";
+
 .action-button {
   @apply p-[10px] rounded mr-[10px] mb-[10px]
 }

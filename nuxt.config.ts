@@ -1,8 +1,15 @@
 import { defineNuxtConfig } from 'nuxt/config'
+import tailwindcss from "@tailwindcss/vite";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-    modules: ['@nuxtjs/tailwindcss'],
+    modules: [],
+    css: ['~/assets/css/tailwind.css'],
+    vite: {
+        plugins: [
+            tailwindcss(),
+        ],
+    },
     nitro: {
         routeRules: {
             "/servers/**": { ssr: false },
@@ -12,5 +19,5 @@ export default defineNuxtConfig({
             "/documentation": { redirect: "/support" },
         }
     },
-    compatibilityDate: "2025-06-18"
+    // compatibilityDate: "2025-06-18"
 })

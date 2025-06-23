@@ -1,3 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --color-text-warning: #fdb766;
+    --color-text-success: white;
+    --color-text-info: #f1f3fa;
+
+    --color-border-warning: #fdb766;
+    --color-border-success: #42503d;
+    --color-border-info: #555762;
+
+    --color-background-warning: #fdb7661a;
+    --color-background-success: #232521;
+    --color-background-info: #2b2f3a;
+
+    --color-primary: #f0f04f;
+    --color-secondary: #4f545c;
+    --color-text: #8d9092;
+    --color-background: #121212;
+    --color-containers: #141414;
+    --color-visible: #202020;
+    --color-selected: #1c1c1c;
+    --color-hover: #1d1d1d;
+    --color-lines: #323232;
+    --color-link: #3b809f;
+}

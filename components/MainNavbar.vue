@@ -31,6 +31,8 @@ const open = ref(false)
 </script>
 
 <style>
+@reference "tailwindcss";
+
 @media only screen and (min-width: 791px) {
   nav > .links { @apply flex text-text place-items-center }
   .links > .link { @apply mr-[50px] text-[16px] text-text }
