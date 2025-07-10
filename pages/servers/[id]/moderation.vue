@@ -1,6 +1,38 @@
 <template>
-  <div class="text=white">
-    <Commands v-model="commands" />
+  <ModerationEnabledGate>
+    <CommandsContainer>
+      <Command
+          v-if="[MuteModes.Timeout, MuteModes.DependsOnCommand].includes(config.moderation?.mute_mode)"
+          name="timeout"
+          description="Timeouts user"
+          :options="
+          ['member', 'duration', 'reason']"
+          v-model="config.enabled_commands.timeout"
+      />
+      <Command
+          v-if="[MuteModes.Role, MuteModes.DependsOnCommand].includes(config.moderation?.mute_mode)"
+          name="mute"
+          description="Mutes user"
+          :options="['member', 'duration', 'reason']"
+          v-model="config.enabled_commands.mute"
+      />
+      <Command
+          name="kick"
+          description="Warns user"
+          :options="['member', 'reason']"
+      />
+      <Command
+        name="warn"
+        description="Warns user"
+        :options="['member', 'reason']"
+      />
+      <Command
+          name="ban"
+          description="Warns user"
+          :options="['member', 'duration', 'reason']"
+      />
+    </CommandsContainer>
+
     <Container>
       <Title>Permissions</Title>
       <Separator />
@@ -12,26 +44,28 @@
         />
       </MessageBox>
     </Container>
+
     <Container>
       <Title>Mutes</Title>
       <Separator />
       <div>
         <div>
           <span>Mute mode: </span>
-          <TabSelect :tabs="muteModes" v-model="muteMode" class="mt-[5px]" />
+          <TabSelect :tabs="muteModes" v-model="config.moderation.mute_mode" class="mt-[5px]" />
         </div>
-        <div v-if="muteMode === `Role` || muteMode === `Depends on command`" class="mt-[10px]">
+
+        <div v-if="[MuteModes.Role, MuteModes.DependsOnCommand].includes(config.moderation.mute_mode)" class="mt-[10px]">
           <span>Role given to muted users:</span>
-          <RoleSelector :roles="guildRoles" v-model="muteRole" class="mt-[5px]" />
+          <RoleSelector :roles="guildRoles" v-model="config.moderation.mute_role" class="mt-[5px]" />
         </div>
       </div>
     </Container>
     <Container>
-      <div class="line">Require reasons: <Switch v-model="requireReasons" /></div>
-      <div class="line">Context menus: <Switch v-model="contextMenus" /></div>
-      <div class="line">Revert actions: <Switch v-model="revertActions" /></div>
+<!--      <div class="line">Require reasons: <Switch v-model="requireReasons" /></div>-->
+      <div class="line">Context menus: <Switch v-model="config.moderation.context_menus" /></div>
+<!--      <div class="line">Revert actions: <Switch v-model="revertActions" /></div>-->
     </Container>
-  </div>
+  </ModerationEnabledGate>
 </template>
 
 <script setup>
@@ -41,50 +75,25 @@ import MessageBox from "../../../components/content/MessageBox";
 import Title from "../../../components/content/Title";
 import Separator from "../../../components/content/Separator";
 import TabSelect from "../../../components/forms/TabSelect";
-import Commands from "../../../components/content/Commands"
 import RoleSelector from "../../../components/forms/RoleSelector";
 
-import { ref, watch } from "vue";
+import {useGuildConfig} from "~/composables/confguration";
 
-const muteModes = ["Depends on command", "Timeout", "Role"]
+const config = await useGuildConfig()
 
-let requireReasons = ref(true)
-let contextMenus = ref(true)
-let revertActions = ref(false)
-let muteMode = ref("Depends on command")
+const MuteModes = {
+  DependsOnCommand: 1,
+  Timeout: 2,
+  Role: 3
+}
 
-let muteRole = ref("321")
+const muteModes = [["Depends on command", MuteModes.DependsOnCommand], ["Timeout", MuteModes.Timeout], ["Role", MuteModes.Role]];
 
 const guildRoles = [{ name: "Administrator", id: "123", color: 0 }, { name: "Muted", id: "321", color: 0 }]
 
-let commands = ref([])
-
-const timeout = { name: "timeout", description: "Time out user", options: ["member", "duration", "reason"], enabled: true };
-const mute = { name: "mute", description: "Mute user", options: ["member", "duration", "reason"], enabled: true };
-const kick = { name: "kick", description: "Kick user", options: ["member", "reason"], enabled: true };
-const ban = { name: "ban", description: "Ban user", options: ["member", "duration", "reason"], enabled: true };
-const unban = { name: "unban", description: "Removes ban", options: ["member"], enabled: true };
-const unmute = { name: "unmute", description: "Removes mute/timeout", options: ["member"], enabled: true };
-
-const updateCommands = () => {
-  const results = [kick, ban]
-
-  if(muteMode.value === "Timeout") results.push(timeout)
-  else if(muteMode.value === "Role") results.push(mute)
-  else if(muteMode.value === "Depends on command") results.push(timeout, mute)
-
-  if(revertActions.value) results.push(unban, unmute)
-
-  commands.value = results
-}
-
-updateCommands()
-watch(revertActions, updateCommands)
-watch(muteMode, updateCommands)
-
 definePageMeta({
   layout: "server",
-  // middleware: ["auth"]
+  middleware: ["auth"]
 })
 </script>
 

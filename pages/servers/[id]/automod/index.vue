@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <ModerationEnabledGate>
     <Container>
       <NuxtLink href="automod/custom">
         <div class="rule-box">
@@ -14,7 +14,7 @@
         </div>
       </NuxtLink>
     </Container>
-  </div>
+  </ModerationEnabledGate>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <ModerationEnabledGate>
     <Container>
       <div class="flex justify-between align-middle">
         <div class="place-items-center inherit">
@@ -10,29 +10,27 @@
         </NuxtLink>
       </div>
     </Container>
-    <Commands v-model="commands" />
+    <CommandsContainer>
+      <Command name="case details" description="Shows detailed information about a case" :options="['number']" v-model="config.enabled_commands.case_details" />
+      <Command name="case edit" description="Edit case reason" :options="['number', 'reason']" v-model="config.enabled_commands.case_edit" />
+      <Command name="case last" description="Last punishment this user has received" :options="['member']" v-model="config.enabled_commands.case_last" />
+      <Command name="case list" description="Shows history of user's punishment" :options="['member', 'page', 'type']" v-model="config.enabled_commands.case_list" />
+      <Command name="case remove" description="Removes a case from user's history" :options="['number']" v-model="config.enabled_commands.case_remove" />
+    </CommandsContainer>
     <container>
 <!--      Save messages: <Switch :enabled="enabled" />-->
     </container>
-  </div>
+  </ModerationEnabledGate>
 </template>
 
 <script setup>
 import Container from "../../../../components/content/Container";
-import Commands from "../../../../components/content/Commands"
-// import { Switch } from "@headlessui/vue"
-import {ref} from "vue";
-// const enabled = ref(true)
+import {useGuildConfig} from "~/composables/confguration";
 
-const commands = ref([
-  { name: "case edit", description: "Edits reason of a case", options: ["number", "reason"], enabled: false },
-  { name: "case details", description: "Show detailed information selected about case", options: ["number"], enabled: false },
-  { name: "case list", description: "List all user cases", options: ["member", "page", "type"], enabled: false },
-  { name: "case last", description: "Show detailed information about last case" , options: ["member"], enabled: false },
-  { name: "case remove", description: "Removes case from user history" , options: ["number"], enabled: false }
-])
+const config = await useGuildConfig()
+
 definePageMeta({
   layout: "server",
-  // middleware: ["auth"]
+  middleware: ["auth"]
 })
 </script>

@@ -35,7 +35,10 @@ import {computed, ref} from "vue"
 import ChevronRight from "../../../../components/icons/ChevronRight";
 import TrashCan from "../../../../components/icons/TrashCan";
 
-const config = ref(useGuildConfig())
+console.log("test")
+const config = await useGuildConfig()
+console.log("test2")
+console.log(config)
 const newRoleName = ref("")
 const selectedRole = ref(false)
 const error = computed(() => (config.value.moderation?.automod?.rules?.length || 0) > 2)
