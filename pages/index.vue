@@ -82,7 +82,6 @@ definePageMeta({
 onMounted(() => {
   const onElementObserved = (entries) => {
     entries.forEach(({target, isIntersecting}) => {
-      console.log(target)
       if (isIntersecting) target.classList.add("shown")
     })
   }

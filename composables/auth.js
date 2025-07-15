@@ -49,7 +49,6 @@ export const useLoginControls = () => {
 
         localStorage.setItem("token", token)
         localStorage.setItem("userId", user.id)
-        console.log("done")
     }
 
     const listen = () => {

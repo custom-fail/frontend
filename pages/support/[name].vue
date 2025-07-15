@@ -29,7 +29,6 @@ const page = route.params?.name
 const data = useSupportPagesData()
 
 const content = (Object.entries(data).find(([n, v]) => page === n) || [])[1]
-console.log(content)
 if(!content) router.go('/404')
 
 definePageMeta({

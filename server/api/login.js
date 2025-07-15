@@ -28,7 +28,6 @@ export default eventHandler(async (event) => {
     })
 
     const { token_type, access_token } = await tokens.json();
-    console.log(token_type, access_token)
     const user = await fetch("https://discord.com/api/users/@me", {
         headers: { "Authorization": `${token_type} ${access_token}` }
     })

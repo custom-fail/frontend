@@ -55,7 +55,6 @@ const calcMargin = (cursorPosition, startedClickAt, value) => {
 
 const updateOpenStatus = () => {
   const xMargin = cursorPosition.value.x - startedClickAt.value.x
-  console.log(xMargin)
   if((xMargin > 100 && !isSidebarOpen.value) || (xMargin < -100 && isSidebarOpen.value)) {
     toggleSidebar()
   }

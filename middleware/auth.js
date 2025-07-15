@@ -3,7 +3,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   if (process.server) return
   let { authenticated, user } = await useAuth()
   const { query } = useRoute()
-  console.log(to.path, authenticated, user, query)
   if(!authenticated) {
     localStorage.setItem("redirectTo", to.path)
     // window.open(loginUrl, "_self")
