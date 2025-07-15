@@ -5,7 +5,7 @@
             modelValue ? `hover:bg-hover` : `bg-[#00000030] cursor-not-allowed`
             ]"
     >
-      <div :class="modelValue ? `` : `opacity-20`">
+      <div :class="modelValue ? `` : `opacity-20`" class="overflow-hidden">
         <span class="text-white text-[20px] mr-[4px]">/{{ name }}</span>
         <span v-for="option in options" :key="option"
               class="bg-containers text-text rounded p-[4px] ml-[5px]"
@@ -37,6 +37,11 @@ const toggleEnabled = () => {
 }
 </script>
 
-<style scoped>
+<style>
+@media screen and (min-width: 600px) {
+  .command {
+    grid-template-columns: 1fr 70px;
+  }
+}
 
 </style>
