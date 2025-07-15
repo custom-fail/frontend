@@ -12,6 +12,7 @@ import {useGuildConfig} from "~/composables/confguration";
 import Title from "~/components/content/Title.vue";
 
 const config = await useGuildConfig();
+const { config } = await useGuildConfig();
 
 const enableWithEverythingOff = () => {
   config.value.moderation = {
@@ -30,7 +31,7 @@ const enableWithEverythingOff = () => {
   config.value.enabled_commands.warn = false
   config.value.enabled_commands.ban = false
 
-  config.value.enabled_commands.clear = true
+  config.value.enabled_commands.clear = false
 }
 </script>
 

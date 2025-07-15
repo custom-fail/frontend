@@ -62,7 +62,7 @@
     </Container>
     <Container>
 <!--      <div class="line">Require reasons: <Switch v-model="requireReasons" /></div>-->
-      <div class="line">Context menus: <Switch v-model="config.moderation.context_menus" /></div>
+      <div class="line">Context menus: <Switch v-model="config.moderation.context_menu" /></div>
 <!--      <div class="line">Revert actions: <Switch v-model="revertActions" /></div>-->
     </Container>
   </ModerationEnabledGate>
@@ -79,7 +79,7 @@ import RoleSelector from "../../../components/forms/RoleSelector";
 
 import {useGuildConfig} from "~/composables/confguration";
 
-const config = await useGuildConfig()
+const { config } = await useGuildConfig()
 
 const MuteModes = {
   DependsOnCommand: 1,

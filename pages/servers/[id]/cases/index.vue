@@ -27,7 +27,7 @@
 import Container from "../../../../components/content/Container";
 import {useGuildConfig} from "~/composables/confguration";
 
-const config = await useGuildConfig()
+const { config } = await useGuildConfig()
 
 definePageMeta({
   layout: "server",
